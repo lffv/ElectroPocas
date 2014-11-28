@@ -9,7 +9,8 @@ App::uses('CakeEmail', 'Network/Email');
 class HomeController extends AppController {
 
 	var $scaffold;
-	public $uses = array('Slide','Servico', 'Dica', 'Noticia');
+	public $uses = array('Slide','Servico', 'Dica', 'Noticia', 'Parceiro');
+	public $components = array('Paginator');
 /**
  * index method
  *
@@ -19,7 +20,6 @@ class HomeController extends AppController {
 		
 		$this->layout = 'public';
 		
-		$i=0; $ct=0;
 		$options = array('conditions' => array('Slide.activo' => 1),'order'=>array('ordem ASC'));
 		$data->slides = $this->Slide->find('all', $options);
 		
@@ -32,7 +32,42 @@ class HomeController extends AppController {
 		$options = array('conditions' => array('Noticia.activo' => 1));
 		$data->noticias = $this->handlerData($this->Noticia->find('all', $options),3);
 
+		$options = array('conditions' => array('Parceiro.activo' => 1));
+		$data->parceiros = $this->handlerData($this->Parceiro->find('all', $options),6);
+
 		$this->set('data', $data);
+	}
+
+	public function servicos($page = null){
+
+		$this->layout = 'public';
+
+		$options = array('conditions' => array('Noticia.activo' => 1));
+		$data->noticias = $this->handlerData($this->Noticia->find('all', $options),3);
+
+		$options = array('conditions' => array('Servico.activo' => 1), 'recursive' => -1, 'limit' => 12);
+		$data->servicos = $this->Servico->find('all', $options);
+
+
+		$options = array('conditions' => array('Parceiro.activo' => 1));
+		$data->parceiros = $this->handlerData($this->Parceiro->find('all', $options),6);
+
+		$this->paginateResults($this->Servico,'Servico' ,12);
+		$this->set('data', $data);
+
+	}
+
+	private function paginateResults( $model=null, $modelName, $numPerPage=1){
+		
+		$options = array('conditions' => array($modelName.'.activo' => 1));
+		
+		$data->total = $model->find('count', $options);
+
+		$data->numPages = floor($data->total / $numPerPage);
+
+		if(($data->total % $numPerPage) !== 0) $data->numPages++;
+
+		return $data;
 	}
 
 	private function handlerData($array, $numPerPage){

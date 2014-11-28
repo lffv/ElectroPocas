@@ -33,6 +33,9 @@
 	//Sobre Nós Route
 	Router::connect('/:about', array('controller' => 'sobrenos', 'action' => 'index'), array('about' => '(?i:aboutus)'));
 
+	//Serviços
+	Router::connect('/:servicos', array('controller' => 'home', 'action' => 'servicos'), array('about' => '(?i:servicos)'));
+
 	
 	Router::connect('/admin', array('controller' => 'users', 'action' => 'login'));
 /**

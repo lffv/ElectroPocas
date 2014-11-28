@@ -362,22 +362,22 @@
 							<ul>
 								<?php foreach ($data->servicos as $bloco) :	?>
 						 			<li>
-										<?php foreach ($bloco as $servTmp) :	
-											$serv = $servTmp['Servico'];
+										<?php foreach ($bloco as $serv) :	
+											
 										?>
 								 			<div class="col-md-3 portfolio-item">
 												<div class="portfolio-one">
 													<div class="portfolio-head">
-														<div class="portfolio-img"><img alt="" src="<?php echo $this->base."/uploads/".$serv['Image']['0'][name]; ?>"></div>
+														<div class="portfolio-img"><img alt="<?php echo $serv['Servico']['designacao']?>" src="<?php echo $this->base."/uploads/".$serv['Servico']['imagem']; ?>"></div>
 														<div class="portfolio-hover">
 															<a class="portfolio-link" href="single-portfolio.html"><i class="fa fa-link"></i></a>
-															<a class="portfolio-zoom prettyPhoto" href="<?php echo $this->base."/uploads/".$serv['imagem']; ?>"><i class="fa fa-search"></i></a>
+															<a class="portfolio-zoom prettyPhoto" href="<?php echo $this->base."/uploads/".$serv['Servico']['imagem']; ?>"><i class="fa fa-search"></i></a>
 														</div>
 													</div><!-- End portfolio-head -->
 													<div class="portfolio-content">
 														<i class="fa fa-leaf"></i>
 														<div class="portfolio-meta">
-															<div class="portfolio-name"><h6><a href="single-portfolio.html"><?php echo $serv['designacao']?></a></h6></div>
+															<div class="portfolio-name"><h6><a href="single-portfolio.html"><?php echo $serv['Servico']['designacao']?></a></h6></div>
 														</div><!-- End portfolio-meta -->
 													</div><!-- End portfolio-content -->
 												</div><!-- End portfolio-item -->
@@ -481,46 +481,17 @@
 			<div class="row">
 				<div class="bxslider-slide bxslider-slide-title clients-slide">
 					<ul>
-						<li>
+					<?php foreach ($data->parceiros as $bloco) :	?>
+			 			<li>
+							<?php foreach ($bloco as $parc) :	
+								
+							?>
 							<div class="col-md-2 client-item">
-								<div class="client"><a href="#"><img alt="" src="http://placehold.it/170x70/FFF/171717/"></a></div>
+								<div class="client"><a target="_blank" href="<?php echo $parc['Parceiro']; ?>"><img alt="<?php echo $parc['Parceiro']['designacao']; ?>" src="<?php echo $this->base."/uploads/".$parc['Parceiro']['imagem']; ?>"></a></div>
 							</div>
-							<div class="col-md-2 client-item">
-								<div class="client"><a href="#"><img alt="" src="http://placehold.it/170x70/FFF/171717/"></a></div>
-							</div>
-							<div class="col-md-2 client-item">
-								<div class="client"><a href="#"><img alt="" src="http://placehold.it/170x70/FFF/171717/"></a></div>
-							</div>
-							<div class="col-md-2 client-item">
-								<div class="client"><a href="#"><img alt="" src="http://placehold.it/170x70/FFF/171717/"></a></div>
-							</div>
-							<div class="col-md-2 client-item">
-								<div class="client"><a href="#"><img alt="" src="http://placehold.it/170x70/FFF/171717/"></a></div>
-							</div>
-							<div class="col-md-2 client-item">
-								<div class="client"><a href="#"><img alt="" src="http://placehold.it/170x70/FFF/171717/"></a></div>
-							</div>
+							<?php endforeach; ?>
 						</li>
-						<li>
-							<div class="col-md-2 client-item">
-								<div class="client"><a href="#"><img alt="" src="http://placehold.it/170x70/FFF/171717/"></a></div>
-							</div>
-							<div class="col-md-2 client-item">
-								<div class="client"><a href="#"><img alt="" src="http://placehold.it/170x70/FFF/171717/"></a></div>
-							</div>
-							<div class="col-md-2 client-item">
-								<div class="client"><a href="#"><img alt="" src="http://placehold.it/170x70/FFF/171717/"></a></div>
-							</div>
-							<div class="col-md-2 client-item">
-								<div class="client"><a href="#"><img alt="" src="http://placehold.it/170x70/FFF/171717/"></a></div>
-							</div>
-							<div class="col-md-2 client-item">
-								<div class="client"><a href="#"><img alt="" src="http://placehold.it/170x70/FFF/171717/"></a></div>
-							</div>
-							<div class="col-md-2 client-item">
-								<div class="client"><a href="#"><img alt="" src="http://placehold.it/170x70/FFF/171717/"></a></div>
-							</div>
-						</li>
+				 	<?php endforeach; ?>
 					</ul>
 				</div><!-- End clients-slide -->
 			</div><!-- End row -->
