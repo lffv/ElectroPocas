@@ -9,8 +9,6 @@
                 </a>
             </div>
         </div>
-
-
         <!-- Users table -->
         <div class="row-fluid table">
             <table class="table table-products table-hover">

@@ -17,7 +17,7 @@ class CategoriasDicasController extends AppController {
  * @return void
  */
 	public function admin_index() {
-		
+
 		$this->set('title_for_layout', 'Canvas - Categorias dicas');
 		$data = $this->CategoriasDica->find('all');
 		$this->paginate = array(

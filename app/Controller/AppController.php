@@ -75,7 +75,7 @@ class AppController extends Controller {
 			$this->Session->write('Menu.Select', $sel);
 		}
 		$mSel = $this->Session->read('Menu.Select');
-		$this->Auth->allow(array('index'));
+		$this->Auth->allow(array('home', 'servicos', 'dicas', 'noticias'));
 		$this->set('mSel', $mSel);
 
     // your other code

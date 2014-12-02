@@ -28,15 +28,28 @@
  */
 
 	//HomePage Route
-	Router::connect('/', array('controller' => 'home', 'action' => 'index'));
+	Router::connect('/', array('controller' => 'home', 'action' => 'home'));
 
 	//Sobre Nós Route
-	Router::connect('/:about', array('controller' => 'sobrenos', 'action' => 'index'), array('about' => '(?i:aboutus)'));
+	Router::connect('/about', array('controller' => 'sobrenos', 'action' => 'index'));
 
 	//Serviços
-	Router::connect('/:servicos', array('controller' => 'home', 'action' => 'servicos'), array('about' => '(?i:servicos)'));
 
+	Router::connect('/servicos', array('controller' => 'home', 'action' => 'servicos'));
+	Router::connect('/Servicos', array('controller' => 'home', 'action' => 'servicos'));
+	Router::connect('/servicos/:page', array('controller' => 'home', 'action' => 'servicos'),array('pass'=>array('page')));
+	Router::connect('/Servicos/:page', array('controller' => 'home', 'action' => 'servicos'),array('pass'=>array('page')));
 	
+	//Dicas
+	Router::connect('/dicasdepoupanca', array('controller' => 'home', 'action' => 'dicas'));
+	Router::connect('/DicasDePoupanca', array('controller' => 'home', 'action' => 'dicas'));
+	
+	Router::connect('/noticias', array('controller' => 'home', 'action' => 'noticias'));
+	Router::connect('/Noticias', array('controller' => 'home', 'action' => 'noticias'));
+	Router::connect('/noticias/:page', array('controller' => 'home', 'action' => 'noticias'),array('pass'=>array('page')));
+	Router::connect('/Noticias/:page', array('controller' => 'home', 'action' => 'noticias'),array('pass'=>array('page')));
+	
+
 	Router::connect('/admin', array('controller' => 'users', 'action' => 'login'));
 /**
  * ...and connect the rest of 'Pages' controller's urls.

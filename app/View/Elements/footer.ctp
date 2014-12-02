@@ -48,10 +48,10 @@
 							
 
 								<?php 
-
+									$i=0;
 									foreach ($noticias as $bloco) :	
 
-									$i=0;?>
+									?>
 					 				<li>
 										<?php foreach ($bloco as $noticiaTmp) :	
 											  $noticia = $noticiaTmp;
@@ -68,8 +68,11 @@
 										<?php 
 											endif;
 											$i++;
+										?>
+										</li>
+										<?php 		
 										endforeach;?>
-									</li>
+									
 								<?php endforeach;?>
 
 							</ul>
@@ -93,13 +96,13 @@
 			<div class="copyrights">Copyright 2014 Ori | Designer By <a target="_blank" href="http://7oroof.com/">7oroof</a> | Developer By <a target="_blank" href="http://2code.info/">2code</a></div>
 			<nav class="navigation-footer">
 				<ul>
-					<li><a href="index.html">Home</a></li>
-					<li><a href="features.html">Features</a></li>
-					<li><a href="services.html">Services</a></li>
-					<li><a href="portfolio-description.html">Portfolio</a></li>
-					<li><a href="blog.html">Blog</a></li>
-					<li><a href="shortcodes.html">Shortcodes</a></li>
-					<li><a href="contact.html">Contact</a></li>
+					<li class=""><a href="<?php echo $this->base ?>"><?php echo __('Home'); ?></a></li>
+					<li class=""><a href="<?php echo $this->base ?>/AboutUs"><?php echo __('Sobre Nós'); ?></a></li>
+					<li class=""><a href="<?php echo $this->base ?>/Servicos"><?php echo __('Serviços'); ?></a></li>
+					<li class=""><a href="<?php echo $this->base ?>/DicasDePoupanca"><?php echo __('Dicas de Poupanca'); ?></a></li>
+					<li class=""><a href="<?php echo $this->base ?>/Noticias"><?php echo __('Notícias'); ?></a></li>
+					<li class=""><a href="<?php echo $this->base ?>/Contactos"><?php echo __('Contactos'); ?></a></li>
+					
 				</ul>
 			</nav>
 		</div><!-- End container -->

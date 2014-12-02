@@ -3,7 +3,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-6">
-				<h4>Our Portfolio</h4>
+				<h4><?php echo __('Serviços'); ?></h4>
 				<span>Latest Awesome &amp; Creative Works</span>
 			</div>
 			<div class="col-md-6">
@@ -12,12 +12,15 @@
 		</div><!-- End row -->
 	</div><!-- End container -->
 </div>
+
+
 <div class="sections">
 	<div class="container">
+		<div class="head-title"><h6><?php echo __('Serviços'); ?></h6></div>
 		<div class="row">
 			<div class="col-md-12 main-content">
 				<div class="row portfolio-all portfolio-0">
-					<ul class="isotope" style="position: relative; overflow: hidden; height: 1508px;">
+					<ul class="isotope" >
 
 					<!-- Row Start --> 
 						<?php 
@@ -25,9 +28,6 @@
 							foreach ($data->servicos as $serv) :	
 							?>
 				 			
-								
-
-								
 								<li class="col-md-3 term-design portfolio-item isotope-item">
 									<div class="portfolio-one">
 										<div class="portfolio-head">
@@ -52,17 +52,35 @@
 					 	<?php endforeach; ?>
 					</ul>
 				</div><!-- End portfolio-0 -->
-
+				
 				<div class="pagination">
 					<ul>
-						<li class="pagination-prev"><a href="#"><i class="fa fa-angle-left"></i></a></li>
-						<li><a href="#">1</a></li>
-						<li><a href="#">2</a></li>
-						<li><a href="#">3</a></li>
-						<li><a href="#">4</a></li>
-						<li class="pagination-next"><a href="#"><i class="fa fa-angle-right"></i></a></li>
+						<?php if($data->paginationLinks->hasPrev):?>
+							<li class="pagination-prev">
+								<a href="<?php echo $this->base ?>/Servicos/<?php echo ($data->paginationLinks->page-1); ?>">
+									<i class="fa fa-angle-left"></i>
+								</a>
+							</li>	
+						<?php endif;?>
+							
+
+						<?php for ($i=1;$i <= $data->paginationLinks->numPages;$i++):?>
+							<li <?php if($data->paginationLinks->page == $i){ echo('class="active"'); }?>
+							>
+								<a href="<?php echo $this->base ?>/Servicos/<?php echo $i; ?>">
+									<?php echo $i; ?>
+								</a>
+							</li>
+						<?php endfor; ?>
+
+
+						<?php if($data->paginationLinks->hasNext):?>
+							<li class="pagination-next"><a href="<?php echo $this->base ?>/Servicos/<?php echo ($data->paginationLinks->page+1); ?>"><i class="fa fa-angle-right"></i></a></li>	
+						<?php endif;?>
+						
 					</ul>
 				</div><!-- End pagination -->
+
 
 			</div><!-- End main-content -->
 		</div><!-- End row -->

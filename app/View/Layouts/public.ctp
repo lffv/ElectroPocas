@@ -58,7 +58,7 @@
 	
 	<header id="header">
 		<div class="container clearfix">
-			<div class="logo"><a href="index.html"><img alt="" src="images/logo.png"></a><span><?php echo __('Electro Poças'); ?></span></div>
+			<div class="logo"><a href="<?php echo $this->base ?>"><img alt="<?php echo __('Electro Poças'); ?>" src="<?php echo $this->base ?>/images/logo.png"></a><span><?php echo __('Electro Poças'); ?></span></div>
 			<!--
 			<div class="header-search">
 				<div class="header-search-a"><i class="fa fa-search"></i></div>
@@ -69,16 +69,11 @@
 				</div>
 			</div>
 			-->
-			<nav class="navigation">
-				<ul>
-					<li class="current_page_item"><a href="<?php echo $this->base ?>"><?php echo __('Home'); ?></a></li>
-					<li class=""><a href="<?php echo $this->base ?>/AboutUs"><?php echo __('Sobre Nós'); ?></a></li>
-					<li class=""><a href="<?php echo $this->base ?>/Servicos"><?php echo __('Serviços'); ?></a></li>
-					<li class=""><a href="<?php echo $this->base ?>/DicasDePoupanca"><?php echo __('Dicas de Poupanca'); ?></a></li>
-					<li class=""><a href="<?php echo $this->base ?>/Noticias"><?php echo __('Notícias'); ?></a></li>
-					<li class=""><a href="<?php echo $this->base ?>/Contactos"><?php echo __('Contactos'); ?></a></li>
-				</ul>
-			</nav><!-- End navigation -->
+			
+			<?php 
+				echo $this->element('navigation'); 
+			?>
+			
 		</div><!-- End container -->
 	</header><!-- End header -->
 	

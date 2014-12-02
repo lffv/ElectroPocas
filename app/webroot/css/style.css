@@ -2067,6 +2067,12 @@ input,textarea {
 	text-align: center;
 	margin-bottom: 30px;
 }
+
+.pagination li.active a{
+	background-color: #0a9fd8;
+	color: white;
+}
+
 .pagination li,.pagination a {
 	display: inline-block;
 }
@@ -2082,6 +2088,7 @@ input,textarea {
 	background-color: #171717;
 	border-color: #171717;
 }
+
 /* 27 - About video */
 .about-video {
 	text-align: center;

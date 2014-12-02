@@ -238,7 +238,7 @@
                     <i class="icon-chevron-down"></i>
                 </a>
                 <ul class="submenu">
-                    <li id="16"><a href="<?php echo $this->base; ?>/users/index/?sel=16">Lista Utilizadores</a></li>
+                    <li id="16"><a href="<?php echo $this->base; ?>/admin/users/index/?sel=16">Lista Utilizadores</a></li>
                     <li id="17"><a href="<?php echo $this->base; ?>/users/add/?sel=17">Novo Utilizador</a></li>
                     <li id="18"><a href="<?php echo $this->base."/users/edit/".AuthComponent::user('id')."/?sel=18"; ?>">O meu Perfil</a></li>
                 </ul>

@@ -8,6 +8,7 @@ App::uses('AppController', 'Controller');
  */
 class UsersController extends AppController {
 	
+	public $scaffold = 'admin';
 	var $helpers = array('Html', 'Form', 'Session', 'Time');
 	var $components = array('AutoLogin', 'Session', 'Ticket', 'Email');
 
@@ -24,7 +25,7 @@ class UsersController extends AppController {
      $this->Auth->allow('logout', 'login', 'signup', 'reset_passwd', 'redefine_password');
  	}
 
-	public function index() {
+	public function admin_index() {
 		$this->set('title_for_layout', 'Canvas - Utilizadores');
 		$this->paginate = array(
         'User' => array(
