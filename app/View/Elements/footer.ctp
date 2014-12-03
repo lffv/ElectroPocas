@@ -1,3 +1,4 @@
+	
 	<footer id="footer">
 		<div class="container">
 			<div class="row">
@@ -48,33 +49,40 @@
 							
 
 								<?php 
-									$i=0;
-									foreach ($noticias as $bloco) :	
-
-									?>
-					 				<li>
-										<?php foreach ($bloco as $noticiaTmp) :	
-											  $noticia = $noticiaTmp;
-											  if($i < 2):
-											  $newDate = date("M d, Y", strtotime($noticia['Noticia']['data']));
+									
+									
+									foreach ($noticiasFooter as $noticia) :	
+										
+										$dataNoticia = explode('/',$noticia['Noticia']['data']);
+										switch ($dataNoticia[1]) {
+											case 1: $mes ="Jan";break;
+											case 2: $mes ="Fev";break;
+											case 3: $mes ="Mar";break;
+											case 4: $mes ="Abr";break;
+											case 5: $mes ="Mai";break;
+											case 6: $mes ="Jun";break;
+											case 7: $mes ="Jul";break;
+											case 8: $mes ="Ago";break;
+											case 9: $mes ="Set";break;
+											case 10: $mes ="Out";break;
+											case 11: $mes ="Nov";break;
+											case 12: $mes ="Dez";break;
+											default:break;
+										}
+										
 										?>
-											
-											<div class="widget-post-img"><img alt="" src="<?php echo $this->base."/uploads/".$noticia['Image'][0]['name']; ?>"></div>
+
+										<li>
+											<div class="widget-post-img">
+												<img alt="" src="<?php echo $this->base."/uploads/".$noticia['Image'][0]['name']; ?>">
+											</div>
 											<div class="widget-post-content">
 												<h6><a href="#"><?php echo $noticia['Noticia']['titulo'] ?></a></h6>
-												<span><?php echo __('Data')?> : <?php echo $newDate?></span>
+												<span><?php echo __('Data')?> : <?php echo $mes.' '.$dataNoticia[0].', '.$dataNoticia[2]?></span>
 											</div>
-
-										<?php 
-											endif;
-											$i++;
-										?>
 										</li>
-										<?php 		
-										endforeach;?>
-									
-								<?php endforeach;?>
-
+										
+										<?php endforeach; ?>
 							</ul>
 						</div>
 					</div>

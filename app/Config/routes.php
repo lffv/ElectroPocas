@@ -31,10 +31,19 @@
 	Router::connect('/', array('controller' => 'home', 'action' => 'home'));
 
 	//Sobre Nós Route
-	Router::connect('/about', array('controller' => 'sobrenos', 'action' => 'index'));
+	Router::connect('/aboutus', array('controller' => 'home', 'action' => 'sobrenos'));
+	Router::connect('/AboutUs', array('controller' => 'home', 'action' => 'sobrenos'));
+	Router::connect('/sobrenos', array('controller' => 'home', 'action' => 'sobrenos'));
+	Router::connect('/SobreNos', array('controller' => 'home', 'action' => 'sobrenos'));
+
+	//CoNTACTOS
+	Router::connect('/contact', array('controller' => 'home', 'action' => 'contactos'));
+	Router::connect('/Contact', array('controller' => 'home', 'action' => 'contactos'));
+	Router::connect('/contactos', array('controller' => 'home', 'action' => 'contactos'));
+	Router::connect('/Contactos', array('controller' => 'home', 'action' => 'contactos'));
+
 
 	//Serviços
-
 	Router::connect('/servicos', array('controller' => 'home', 'action' => 'servicos'));
 	Router::connect('/Servicos', array('controller' => 'home', 'action' => 'servicos'));
 	Router::connect('/servicos/:page', array('controller' => 'home', 'action' => 'servicos'),array('pass'=>array('page')));

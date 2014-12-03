@@ -32,6 +32,7 @@ App::uses('Controller', 'Controller');
  * @link		http://book.cakephp.org/2.0/en/controllers.html#the-app-controller
  */
 class AppController extends Controller {
+	public $uses = array('Noticia');
 	public $components = array(
 //			'DebugKit.Toolbar',
 			'Acl',
@@ -74,10 +75,13 @@ class AppController extends Controller {
 			$sel = $_GET['sel'];
 			$this->Session->write('Menu.Select', $sel);
 		}
+		
 		$mSel = $this->Session->read('Menu.Select');
-		$this->Auth->allow(array('home', 'servicos', 'dicas', 'noticias'));
+		$this->Auth->allow(array('home', 'servicos', 'dicas', 'noticias', 'sobrenos', 'contactos'));
 		$this->set('mSel', $mSel);
 
-    // your other code
+		$options = array('conditions' => array('Noticia.activo' => 1), 'order'=> array('Noticia.data DESC'), 'limit' => 3);
+		$this->set('noticiasFooter', $this->Noticia->find('all', $options));
+		
   }
 }

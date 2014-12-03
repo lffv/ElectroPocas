@@ -5,4 +5,5 @@ $(document).ready(function(){
 		onText:'TRUE',
 		offText:'FALSE'
 	});
+
 });

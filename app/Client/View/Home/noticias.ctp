@@ -1,22 +1,46 @@
+<div class="clearfix"></div>
+<div class="breadcrumbs">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6">
+				<h4><?php echo __('Serviços'); ?></h4>
+				<span>Latest Awesome &amp; Creative Works</span>
+			</div>
+			<div class="col-md-6">
+				<div class="crumbs">You are here: <a href="index.html">Home</a><span class="crumbs-span">»</span><span>Portfoilo</span></div>
+			</div>
+		</div><!-- End row -->
+	</div><!-- End container -->
+</div>
 <div class="sections">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12 main-content">
 					<div class="row">
 					<?php foreach ($data->all_noticias as $noticia):
-
-							$newDate = date("M, Y", strtotime($noticia['Noticia']['data']));
-							$newDateDay = date("d", strtotime($noticia['Noticia']['data']));
-							
-							echo debug($noticia['Noticia']['data']);
-
+							$dataNoticia = explode('/',$noticia['Noticia']['data']);
+							switch ($dataNoticia[1]) {
+								case 1: $mes ="Jan";break;
+								case 2: $mes ="Fev";break;
+								case 3: $mes ="Mar";break;
+								case 4: $mes ="Abr";break;
+								case 5: $mes ="Mai";break;
+								case 6: $mes ="Jun";break;
+								case 7: $mes ="Jul";break;
+								case 8: $mes ="Ago";break;
+								case 9: $mes ="Set";break;
+								case 10: $mes ="Out";break;
+								case 11: $mes ="Nov";break;
+								case 12: $mes ="Dez";break;
+								default:break;
+							}
 						?>
 						<div class="col-md-12">
 							<div class="blog-item blog-item-2">
 								<div class="blog-img">
 									<img alt="" src="
 										<?php echo $this->base."/uploads/".$noticia['Image'][0]['name']; ?>">
-										<div class="blog-date"><span><?php echo $newDateDay; ?></span><span><?php echo $newDate; ?></span></div>
+										<div class="blog-date"><span><?php echo $dataNoticia[0]; ?></span><span><?php echo $mes.', '.$dataNoticia[2]; ?></span></div>
 									</div><!-- End blog-img -->
 									<div class="blog-content">
 										<h6><a href="single-blog.html"><?php echo $noticia['Noticia']['titulo']?></a></h6>

@@ -61,7 +61,7 @@
 							
 							?>
 							<div class="col-md-2 client-item">
-								<div class="client"><a target="_blank" href="<?php echo $parc['Parceiro']; ?>"><img alt="<?php echo $parc['Parceiro']['designacao']; ?>" src="<?php echo $this->base."/uploads/".$parc['Parceiro']['imagem']; ?>"></a></div>
+								<div class="client"><a target="_blank" href="<?php echo $parc['Parceiro']['link']; ?>"><img alt="<?php echo $parc['Parceiro']['designacao']; ?>" src="<?php echo $this->base."/uploads/".$parc['Parceiro']['imagem']; ?>"></a></div>
 							</div>
 							<?php endforeach; ?>
 						</li>

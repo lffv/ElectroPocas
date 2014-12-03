@@ -90,7 +90,7 @@
 <!-- PARCEIROS -->
 	<div class="sections sections-padding-b-50" style="padding:0px;">
 		<div class="container">
-			<div class="head-title"><h6>Parceiros</h6></div>
+			<div class="head-title"><h6><?php echo __('Parceiros'); ?></h6></div>
 			<div class="row">
 				<div class="bxslider-slide bxslider-slide-title clients-slide">
 					<ul>
@@ -99,7 +99,7 @@
 							<?php foreach ($bloco as $parc) :	
 							?>
 							<div class="col-md-2 client-item">
-								<div class="client"><a target="_blank" href="<?php echo $parc['Parceiro']; ?>"><img alt="<?php echo $parc['Parceiro']['designacao']; ?>" src="<?php echo $this->base."/uploads/".$parc['Parceiro']['imagem']; ?>"></a></div>
+								<div class="client"><a target="_blank" href="<?php echo $parc['Parceiro']['link']; ?>"><img alt="<?php echo $parc['Parceiro']['designacao']; ?>" src="<?php echo $this->base."/uploads/".$parc['Parceiro']['imagem']; ?>"></a></div>
 							</div>
 							<?php endforeach; ?>
 						</li>

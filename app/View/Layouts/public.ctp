@@ -81,13 +81,7 @@
 	
 	<?php echo $this->Session->flash(); ?>
 	<?php echo $this->fetch('content'); ?>
-	
-	<?php 
-		$dataFooter = array('noticias'=>$data->noticias);
-	?>
-
-
-	<?php echo $this->element('footer', $dataFooter); ?>
+	<?php echo $this->element('footer'); ?>
 
 
 	
@@ -98,6 +92,9 @@
 <!-- js -->
 
 <!-- End js -->
+<script type="text/javascript"
+      src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDBFAvQ8vqdQX212fXbQHq9ECknlx2EPds&sensor=true">
+    </script>
 <?php 
 
         echo $this->Html->script('jquery.min');

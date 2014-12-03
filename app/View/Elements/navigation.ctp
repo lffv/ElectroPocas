@@ -1,4 +1,5 @@
 <?php 
+	isset($data->menu) ? $menu = $data->menu: $menu = "" ;
 	$classHome = "";
 	$classAbout = "";
 	$classServico = "";
@@ -6,7 +7,7 @@
 	$classNoticia = "";
 	$classContacto = "";
 
-	switch ($data->menu) {
+	switch ($menu) {
 		case 'home':
 			$classHome = "current_page_item";
 			break;

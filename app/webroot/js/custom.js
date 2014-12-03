@@ -1,5 +1,5 @@
 (function($) { "use strict";
-	
+
 	/* Menu */
 	jQuery(".navigation  ul li ul").parent("li").addClass("parent-list");
 	jQuery(".parent-list").find("a:first").append("<span class='menu-nav-arrow'><i class='fa fa-angle-down'></i></span>");
@@ -344,5 +344,26 @@
 	});
 	
 	jQuery(".sidebar-tweet ul").bxSlider({easing: "linear",tickerHover: true,slideWidth: 1170,adaptiveHeightSpeed: 1500,moveSlides: 1,maxSlides: 1,auto: true});
+
+	
+	var mapa = document.getElementById("mapa");
+
+    if(mapa){
+    	
+    	var mapOptions = {
+          center: new google.maps.LatLng(41.390931,-7.999344),
+          scrollwheel: false,
+          zoom: 16,
+          mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+
+        var map = new google.maps.Map(mapa, mapOptions);
+		
+		var marker = new google.maps.Marker({
+		    position: mapOptions.center,
+		    map: map,
+		    title:"Electro Poças"
+		});
+    }
 	
 })(jQuery);

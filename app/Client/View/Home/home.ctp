@@ -443,12 +443,28 @@
 					 			<li>
 									<?php foreach ($bloco as $noticiaTmp) :	
 										$noticia = $noticiaTmp;
+										$dataNoticia = explode('/',$noticia['Noticia']['data']);
+										switch ($dataNoticia[1]) {
+											case 1: $mes ="Jan";break;
+											case 2: $mes ="Fev";break;
+											case 3: $mes ="Mar";break;
+											case 4: $mes ="Abr";break;
+											case 5: $mes ="Mai";break;
+											case 6: $mes ="Jun";break;
+											case 7: $mes ="Jul";break;
+											case 8: $mes ="Ago";break;
+											case 9: $mes ="Set";break;
+											case 10: $mes ="Out";break;
+											case 11: $mes ="Nov";break;
+											case 12: $mes ="Dez";break;
+											default:break;
+										}
 									?>
 									<div class="col-md-4 blog-item">
 										<div class="blog-one">
 											<div class="blog-img">
 												<img alt="" src="<?php echo $this->base."/uploads/".$noticia['Image'][0]['name']; ?>">
-												<div class="blog-date"><span>3</span><span>July, 2014</span></div>
+												<div class="blog-date"><span><?php echo $dataNoticia[0];?></span><span><?php echo $mes.', '.$dataNoticia[0];?></span></div>
 											</div><!-- End blog-img -->
 											<div class="blog-content">
 												<h6><a href="single-blog.html">Blog Tiltle Shall Be Here !</a></h6>
@@ -487,7 +503,7 @@
 								
 							?>
 							<div class="col-md-2 client-item">
-								<div class="client"><a target="_blank" href="<?php echo $parc['Parceiro']; ?>"><img alt="<?php echo $parc['Parceiro']['designacao']; ?>" src="<?php echo $this->base."/uploads/".$parc['Parceiro']['imagem']; ?>"></a></div>
+								<div class="client"><a target="_blank" href="<?php echo $parc['Parceiro']['link']; ?>"><img alt="<?php echo $parc['Parceiro']['designacao']; ?>" src="<?php echo $this->base."/uploads/".$parc['Parceiro']['imagem']; ?>"></a></div>
 							</div>
 							<?php endforeach; ?>
 						</li>

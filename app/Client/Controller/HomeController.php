@@ -20,20 +20,16 @@ class HomeController extends AppController {
 		
 		$this->layout = 'public';
 		
-		$options = array('conditions' => array('Slide.activo' => 1),'order'=>array('ordem ASC'));
+		$options = array('conditions' => array('Slide.activo' => 1),'order'=>array('Slide.ordem ASC'));
 		$data->slides = $this->Slide->find('all', $options);
 		
-		$options = array('conditions' => array('Servico.activo' => 1), 'recursive' => -1);
-		$data->servicos = $this->handlerData($this->Servico->find('all', $options),4);
+		$data->dicas = $this->handlerData($this->getDicas(),4);
 
-		$options = array('conditions' => array('Dica.activo' => 1));
-		$data->dicas = $this->handlerData($this->Dica->find('all', $options),4);
+		$data->servicos = $this->handlerData($this->getServicos(),4);
 
-		$options = array('conditions' => array('Noticia.activo' => 1));
-		$data->noticias = $this->handlerData($this->Noticia->find('all', $options),3);
+		$data->noticias = $this->handlerData($this->getNoticias(),3);
 
-		$options = array('conditions' => array('Parceiro.activo' => 1));
-		$data->parceiros = $this->handlerData($this->Parceiro->find('all', $options),6);
+		$data->parceiros = $this->handlerData($this->getParceiros(),6);
 
 		$data->menu = 'home';
 
@@ -43,26 +39,17 @@ class HomeController extends AppController {
 
 	public function servicos($page = 1){
 
-		$numPerPage = 12;
-		$pageCond = array('conditions' => array('Servico.activo' => 1), 
-						  'recursive' => -1, 
-						  'limit' => $numPerPage,
-						  'offset' => $numPerPage * ($page-1)
-						 );
-
-		//Pagination Links
-	    $data->paginationLinks = $this->paginateResults($this->Servico, 'Servico', $numPerPage, $page);
-
 		$this->layout = 'public';
 
-		$options = array('conditions' => array('Noticia.activo' => 1));
-		$data->noticias = $this->handlerData($this->Noticia->find('all', $options),3);
+		$numPerPage = 12;
 
-		$options = $pageCond;
-		$data->servicos = $this->Servico->find('all', $options);
+	    $data->paginationLinks = $this->paginateResults($this->Servico, 'Servico', $numPerPage, $page);
 
-		$options = array('conditions' => array('Parceiro.activo' => 1));
-		$data->parceiros = $this->handlerData($this->Parceiro->find('all', $options),6);
+		$data->noticias = $this->handlerData($this->getNoticias(),3);
+
+		$data->servicos = $this->getDataPaginate($this->Servico, 'Servico', $page, $numPerPage);//$this->Servico->find('all', $options);
+
+		$data->parceiros = $this->handlerData($this->getParceiros(),6);
 
 		$data->menu = 'servicos';
 
@@ -75,14 +62,11 @@ class HomeController extends AppController {
 		
 		$this->layout = 'public';
 
-		$options = array('conditions' => array('Noticia.activo' => 1));
-		$data->noticias = $this->handlerData($this->Noticia->find('all', $options),3);
+		$data->noticias = $this->handlerData($this->getNoticias(),3);
 
-		$options = array('conditions' => array('Parceiro.activo' => 1));
-		$data->parceiros = $this->handlerData($this->Parceiro->find('all', $options),6);
+		$data->parceiros = $this->handlerData($this->getParceiros(),6);
 
-		$options = array('conditions' => array('CategoriasDica.activo' => 1));
-		$data->dicas = $this->CategoriasDica->find('all', $options);
+		$data->dicas = $this->CategoriasDica->find('all', array('conditions' => array('CategoriasDica.activo' => 1)));
 
 		for ( $i = 0; $i < count($data->dicas); $i++) {
 			$data->dicas[$i]['dica'] = $this->handlerData($data->dicas[$i]['dica'],4);
@@ -100,23 +84,68 @@ class HomeController extends AppController {
 		$this->layout = 'public';
 
 		$numPerPage = 4;
-		$pageCond = array('conditions' => array('Noticia.activo' => 1), 
-						  'order'=> array('Noticia.data DESC'),
-						  'limit' => $numPerPage,
-						  'offset' => $numPerPage * ($page-1)
-						 );
-
+		
 		$data->paginationLinks = $this->paginateResults($this->Noticia, 'Noticia', $numPerPage, $page);
 
-		$options = array('conditions' => array('Noticia.activo' => 1), 'order'=> array('Noticia.data DESC'));
-		$data->noticias = $this->handlerData($this->Noticia->find('all', $options),3);
+		$data->noticias = $this->handlerData($this->getNoticias(),3);
 
-		$options = $pageCond;
-		$data->all_noticias = $this->Noticia->find('all', $options);
+		$data->all_noticias = $this->getDataPaginate($this->Noticia, 'Noticia', $page, $numPerPage, true);
 		$data->menu = 'noticias';
 		
 		$this->set('data', $data);
 
+	}
+
+	public function sobrenos(){
+		
+		$this->layout = 'public';
+
+		$data->menu = 'aboutus';
+
+		$data->noticias = $this->handlerData($this->getNoticias(),3);
+		$this->set('data', $data);
+	}
+
+
+	public function contactos(){
+		
+		$this->layout = 'public';
+
+		$data->menu = 'contactos';
+
+		$data->noticias = $this->handlerData($this->getNoticias(),3);
+		$this->set('data', $data);
+	}
+
+	private function getNoticias(){
+		$options = array('conditions' => array('Noticia.activo' => 1), 'order'=> array('Noticia.data DESC'));
+		return $this->Noticia->find('all', $options);
+	}
+
+	private function getParceiros(){
+		$options = array('conditions' => array('Parceiro.activo' => 1));
+		return $this->Parceiro->find('all', $options);
+	}
+
+	private function getServicos(){
+		$options = array('conditions' => array('Servico.activo' => 1), 'recursive' => -1);
+		return $this->Servico->find('all', $options);
+	}
+
+	private function getDicas(){
+		$options = array('conditions' => array('Dica.activo' => 1));
+		return $this->Dica->find('all', $options);
+	}
+
+	private function getDataPaginate($model, $modelName, $page, $numPerPage, $order = false ){
+		$pageCond = array('conditions' => array($modelName.'.activo' => 1), 
+						  'limit' => $numPerPage,
+						  'offset' => $numPerPage * ($page-1)
+						 );
+
+		if($order)$pageCond['order'] = array($modelName.'.data DESC');
+
+		return $model->find('all', $pageCond);
 	}
 	/**
 	 * paginateResults Function => set all Parameters to paginate Module
