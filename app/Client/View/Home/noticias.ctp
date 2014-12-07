@@ -3,11 +3,11 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-6">
-				<h4><?php echo __('Serviços'); ?></h4>
+				<h4><?php echo __('Notícias'); ?></h4>
 				<span>Latest Awesome &amp; Creative Works</span>
 			</div>
 			<div class="col-md-6">
-				<div class="crumbs">You are here: <a href="index.html">Home</a><span class="crumbs-span">»</span><span>Portfoilo</span></div>
+				<div class="crumbs"><?php echo __('Voçê esta aqui: '); ?><a href="<?php echo $this->base ?>/"><?php echo __('Home'); ?></a><span class="crumbs-span">»</span><span><?php echo __('Notícias'); ?></span></div>
 			</div>
 		</div><!-- End row -->
 	</div><!-- End container -->
@@ -34,8 +34,10 @@
 								case 12: $mes ="Dez";break;
 								default:break;
 							}
+
 						?>
-						<div class="col-md-12">
+						<?php //echo debug($noticia['Noticia']['hashtag']);?>
+						<div class="col-md-12" id="<?php echo $noticia['Noticia']['hashtag'];?>">
 							<div class="blog-item blog-item-2">
 								<div class="blog-img">
 									<img alt="" src="

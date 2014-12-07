@@ -35,6 +35,11 @@
 					            ?>
 				                </div>
 				                <div class="span12 field-box">
+			                    <?php 
+					            	echo $this->Form->input('hashtag', array('label'=>'HashTag', 'class'=>'span9', 'error' => array('attributes' => array('wrap' => 'span', 'class' => 'alert-msg'))));
+					            ?>
+				                </div>
+				                <div class="span12 field-box">
 				                <?php 
 					            	echo $this->Form->input('data', array('label'=>'Data', 'class'=>'span9 datepicker', 'error' => array('attributes' => array('wrap' => 'span', 'class' => 'alert-msg'))));
 					            ?>

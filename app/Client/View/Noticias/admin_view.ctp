@@ -36,7 +36,12 @@
 				                    		<?php echo h($noticia['Noticia']['data']); ?>
 			                    		</div>					                
 			                    	</div>
-			                    	
+			                    	<div class="span12 field-box">
+				                    	<div class="input text">
+				                    		<label for="titulo">HashTag:</label>
+				                    		<?php echo h($noticia['Noticia']['hashtag']); ?>
+			                    		</div>					                
+			                    	</div>
 				            		
 				            		<div class="span12 field-box">
 				                    	<div class="input text">

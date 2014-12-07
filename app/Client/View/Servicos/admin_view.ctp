@@ -32,7 +32,13 @@
 					                        ?>
 			                    		</div>					                
 			                    	</div>
-				            		
+				            		<div class="span12 field-box">
+					                    <div class="input text">
+				                    		<label for="slug">Serviço Url:</label>
+				                    		<?php echo $servico['Servico']['slug'] ?>	
+				                    		
+			                    		</div>
+					                </div>
 				            		<div class="span12 field-box">
 				                    	<div class="input text">
 				                    		<label for="designacao">Titulo Metatags:</label>

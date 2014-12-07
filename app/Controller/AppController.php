@@ -77,7 +77,7 @@ class AppController extends Controller {
 		}
 		
 		$mSel = $this->Session->read('Menu.Select');
-		$this->Auth->allow(array('home', 'servicos', 'dicas', 'noticias', 'sobrenos', 'contactos'));
+		$this->Auth->allow(array('findNoticia','home', 'servicos', 'dicas', 'noticias', 'sobrenos', 'contactos', 'servico'));
 		$this->set('mSel', $mSel);
 
 		$options = array('conditions' => array('Noticia.activo' => 1), 'order'=> array('Noticia.data DESC'), 'limit' => 3);

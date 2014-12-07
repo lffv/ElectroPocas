@@ -7,7 +7,7 @@
 				<span>Latest Awesome &amp; Creative Works</span>
 			</div>
 			<div class="col-md-6">
-				<div class="crumbs">You are here: <a href="index.html">Home</a><span class="crumbs-span">»</span><span>Portfoilo</span></div>
+				<div class="crumbs"><?php echo __('Voçê esta aqui: '); ?><a href="<?php echo $this->base ?>/"><?php echo __('Home'); ?></a><span class="crumbs-span">»</span><span><?php echo __('Serviços'); ?></span></div>
 			</div>
 		</div><!-- End row -->
 	</div><!-- End container -->
@@ -26,21 +26,23 @@
 						<?php 
 							
 							foreach ($data->servicos as $serv) :	
+
 							?>
 				 			
 								<li class="col-md-3 term-design portfolio-item isotope-item">
+
 									<div class="portfolio-one">
 										<div class="portfolio-head">
 											<div class="portfolio-img"><img alt="<?php echo $serv['Servico']['designacao']?>" src="<?php echo $this->base."/uploads/".$serv['Servico']['imagem']; ?>"></div>
 											<div class="portfolio-hover">
-												<a class="portfolio-link" href="single-portfolio.html"><i class="fa fa-link"></i></a>
+												<a class="portfolio-link" href="<?php echo $this->base."/Servico/".$serv['Servico']['slug']; ?>"><i class="fa fa-link"></i></a>
 												<a class="portfolio-zoom prettyPhoto" href="<?php echo $this->base."/uploads/".$serv['Servico']['imagem']; ?>"><i class="fa fa-search"></i></a>
 											</div>
 										</div><!-- End portfolio-head -->
 										<div class="portfolio-content">
 											<i class="fa fa-leaf"></i>
 											<div class="portfolio-meta">
-												<div class="portfolio-name"><h6><a href="single-portfolio.html"><?php echo $serv['Servico']['designacao']?></a></h6></div>
+												<div class="portfolio-name"><h6><a href="<?php echo $this->base."/Servico/".$serv['Servico']['slug']; ?>"><?php echo $serv['Servico']['designacao']?> </a></h6></div>
 											</div><!-- End portfolio-meta -->
 										</div><!-- End portfolio-content -->
 									</div><!-- End portfolio-item -->
@@ -52,35 +54,6 @@
 					 	<?php endforeach; ?>
 					</ul>
 				</div><!-- End portfolio-0 -->
-				
-				<div class="pagination">
-					<ul>
-						<?php if($data->paginationLinks->hasPrev):?>
-							<li class="pagination-prev">
-								<a href="<?php echo $this->base ?>/Servicos/<?php echo ($data->paginationLinks->page-1); ?>">
-									<i class="fa fa-angle-left"></i>
-								</a>
-							</li>	
-						<?php endif;?>
-							
-
-						<?php for ($i=1;$i <= $data->paginationLinks->numPages;$i++):?>
-							<li <?php if($data->paginationLinks->page == $i){ echo('class="active"'); }?>
-							>
-								<a href="<?php echo $this->base ?>/Servicos/<?php echo $i; ?>">
-									<?php echo $i; ?>
-								</a>
-							</li>
-						<?php endfor; ?>
-
-
-						<?php if($data->paginationLinks->hasNext):?>
-							<li class="pagination-next"><a href="<?php echo $this->base ?>/Servicos/<?php echo ($data->paginationLinks->page+1); ?>"><i class="fa fa-angle-right"></i></a></li>	
-						<?php endif;?>
-						
-					</ul>
-				</div><!-- End pagination -->
-
 
 			</div><!-- End main-content -->
 		</div><!-- End row -->
@@ -88,7 +61,7 @@
 </div>
 
 <!-- PARCEIROS -->
-	<div class="sections sections-padding-b-50" style="padding:0px;">
+	<div class="sections  section-2 sections-padding-b-50" >
 		<div class="container">
 			<div class="head-title"><h6><?php echo __('Parceiros'); ?></h6></div>
 			<div class="row">

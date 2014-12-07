@@ -36,12 +36,11 @@
 				                </div>
 				                <div class="span12 field-box">
 			                    <?php 
-					            	echo $this->Form->input('slug', array('label'=>'URL do Produto','placeholder'=>'Preenchimento Obrigatório', 'class'=>'span9', 'error' => array('attributes' => array('wrap' => 'span', 'class' => 'alert-msg'))));
+					            	echo $this->Form->input('designacao', array('label'=>'Designação:','placeholder'=>'Preenchimento Obrigatório', 'class'=>'span9', 'error' => array('attributes' => array('wrap' => 'span', 'class' => 'alert-msg'))));
 					            ?>
 				                </div>
-				                <div class="span12 field-box">
-			                    <?php 
-					            	echo $this->Form->input('designacao', array('label'=>'Designação:','placeholder'=>'Preenchimento Obrigatório', 'class'=>'span9', 'error' => array('attributes' => array('wrap' => 'span', 'class' => 'alert-msg'))));
+				                <?php 
+					            	echo $this->Form->input('texto', array('label'=>'Texto do Produto:','placeholder'=>'Preenchimento Obrigatório', 'class'=>'span9', 'error' => array('attributes' => array('wrap' => 'span', 'class' => 'alert-msg'))));
 					            ?>
 				                </div>
 				                <div class="span12 field-box">

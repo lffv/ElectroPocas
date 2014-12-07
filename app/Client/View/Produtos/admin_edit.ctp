@@ -39,14 +39,14 @@
 				                </div>
 				                <div class="span12 field-box">
 			                    <?php 
-					            	echo $this->Form->input('slug', array('label'=>'URL do Produto','placeholder'=>'Preenchimento Obrigatório', 'class'=>'span9', 'error' => array('attributes' => array('wrap' => 'span', 'class' => 'alert-msg'))));
-					            ?>
-				                </div>
-				                <div class="span12 field-box">
-			                    <?php 
 					            	echo $this->Form->input('designacao', array('label'=>'Designação do Produto:','placeholder'=>'Preenchimento Obrigatório', 'class'=>'span9', 'error' => array('attributes' => array('wrap' => 'span', 'class' => 'alert-msg'))));
 					            ?>
 				                </div>
+				                <?php 
+					            	echo $this->Form->input('texto', array('label'=>'Texto do Produto:','placeholder'=>'Preenchimento Obrigatório', 'class'=>'span9', 'error' => array('attributes' => array('wrap' => 'span', 'class' => 'alert-msg'))));
+					            ?>
+				                </div>
+				                <?php /*
 				                <div class="span12 field-box">
 			                    <?php 
 					            	echo $this->Form->input('Metatag.title', array('label'=>'Titulo Metatags:','placeholder'=>'Preenchimento Obrigatório', 'class'=>'span9', 'error' => array('attributes' => array('wrap' => 'span', 'class' => 'alert-msg'))));
@@ -62,6 +62,7 @@
 					            	echo $this->Form->input('Metatag.description', array('label'=>'Descrição Metatags:','placeholder'=>'Preenchimento Obrigatório', 'class'=>'span9', 'error' => array('attributes' => array('wrap' => 'span', 'class' => 'alert-msg'))));
 					            ?>
 				                </div>
+				                */?>
 				                <div class="field-box">
 			                        <?php				
 									echo $this->Form->input('activo', array('class'=>'bs-switch','label'=>false, 'div'=>false,'before'=>'<label>Activo:</label><label class="checkbox"><div class="checker"><span>', 'after'=>'</span></div></label>', 'error' => array('attributes' => array('wrap' => 'span', 'class' => 'alert-msg'))));

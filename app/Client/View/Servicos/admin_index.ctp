@@ -74,7 +74,7 @@
     <h3><?php echo __("Apagar Serviço"); ?></h3>
   </div>
   <div class="modal-body">
-    <p><?php echo __("Está prestes a pagar este parceiro e essa operação é irreversível."); ?></p>
+    <p><?php echo __("Está prestes a pagar este Serviço e essa operação é irreversível."); ?></p>
     <p><strong><?php echo __("De certeza que pretende apagar o Serviço?"); ?></strong></p>
   </div>
   <div class="modal-footer">

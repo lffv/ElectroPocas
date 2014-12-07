@@ -7,7 +7,7 @@
 				<span>Latest Awesome &amp; Creative Works</span>
 			</div>
 			<div class="col-md-6">
-				<div class="crumbs">You are here: <a href="index.html">Home</a><span class="crumbs-span">»</span><span>Portfoilo</span></div>
+				<div class="crumbs"><?php echo __('Voçê esta aqui: '); ?><a href="<?php echo $this->base ?>/"><?php echo __('Home'); ?></a><span class="crumbs-span">»</span><span><?php echo __('Dicas de Poupança'); ?></span></div>
 			</div>
 		</div><!-- End row -->
 	</div><!-- End container -->
@@ -48,8 +48,12 @@
 <?php endforeach;?>
 
 
+<?php 
+	if($i%2==0)$class='section-2';
+	else $class='';
+?>
 <!-- PARCEIROS -->
-	<div class="sections sections-padding-b-50" style="padding:0px;">
+	<div class="sections <?php echo $class ?> sections-padding-b-50" >
 		<div class="container">
 			<div class="head-title"><h6>Parceiros</h6></div>
 			<div class="row">

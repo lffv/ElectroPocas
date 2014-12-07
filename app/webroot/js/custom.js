@@ -1,5 +1,17 @@
 (function($) { "use strict";
 
+
+
+
+	/* Noticias HashTag Handler*/
+
+	if(window.location.hash){
+		
+		var hash = window.location.hash.substr(1, window.location.hash.length);
+		smoothScroll.animateScroll( null, '#'+hash , {"offset": 250 });
+		
+	}
+	
 	/* Menu */
 	jQuery(".navigation  ul li ul").parent("li").addClass("parent-list");
 	jQuery(".parent-list").find("a:first").append("<span class='menu-nav-arrow'><i class='fa fa-angle-down'></i></span>");
@@ -324,7 +336,7 @@
 	jQuery("a[class^='prettyPhoto'], a[rel^='prettyPhoto']").prettyPhoto(lightboxArgs);
 	
 	/* Twitter */
-	
+	/*
 	jQuery(".footer-tweet,.sidebar-tweet").tweet({
 		join_text: false,
 		username: "envato", // Username
@@ -332,7 +344,7 @@
 		avatar_size: false,
 		count: 2,
 		template: "{text} <br> {time}",
-		loading_text: "loading twitter feed...",
+		loading_text: "loading twitter feed..aaa.",
 		seconds_ago_text: "about %d seconds ago",
 		a_minutes_ago_text: "about a minute ago",
 		minutes_ago_text: "about %d minutes ago",
@@ -342,8 +354,12 @@
 		days_ago_text: "about %d days ago",
 		view_text: "view tweet on twitter"
 	});
-	
+	*/
 	jQuery(".sidebar-tweet ul").bxSlider({easing: "linear",tickerHover: true,slideWidth: 1170,adaptiveHeightSpeed: 1500,moveSlides: 1,maxSlides: 1,auto: true});
+
+
+	 
+
 
 	
 	var mapa = document.getElementById("mapa");
@@ -365,5 +381,19 @@
 		    title:"Electro Poças"
 		});
     }
+
+
+/*
+	$.ajaxSetup({ cache: true });
+	$.getScript('//connect.facebook.net/en_UK/all.js', function(){
+		FB.init({
+			appId: '744785525590202',
+		});     
+		FB.api('/744785525590202', function(response) {
+		  console.log(response);
+		});
+	});
+*/
+	 	
 	
 })(jQuery);

@@ -89,9 +89,9 @@
 				</div>
 				<div class="col-md-3">
 					<div class="footer-widget">
-						<div class="widget-title"><h6>Latest Tweets</h6></div>
+						<div class="widget-title"><h6><?php echo __('Ultímos Posts')?></h6></div>
 						<div class="widget-twitter">
-							<div class="footer-tweet"></div>
+							<div class="fb-root"></div>
 						</div>
 					</div>
 				</div>
@@ -101,7 +101,7 @@
 
 	<footer id="footer-bottom">
 		<div class="container">
-			<div class="copyrights">Copyright 2014 Ori | Designer By <a target="_blank" href="http://7oroof.com/">7oroof</a> | Developer By <a target="_blank" href="http://2code.info/">2code</a></div>
+			<div class="copyrights">Copyright 2014 ElectroPoças  | Developer By <a target="_blank" href="<?php echo $this->base ?>/">ElectroPoças</a></div>
 			<nav class="navigation-footer">
 				<ul>
 					<li class=""><a href="<?php echo $this->base ?>"><?php echo __('Home'); ?></a></li>

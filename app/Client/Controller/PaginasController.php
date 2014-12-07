@@ -77,7 +77,6 @@ class PaginasController extends AppController {
 
 		} else {
 			$options = array('conditions' => array('Pagina.' . $this->Pagina->primaryKey => $id));
-			debug($this->Pagina->find('first', $options));
 			$this->request->data = $this->Pagina->find('first', $options);
 		}
 	}

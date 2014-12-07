@@ -7,7 +7,7 @@
 				<span>Latest Awesome &amp; Creative Works</span>
 			</div>
 			<div class="col-md-6">
-				<div class="crumbs">You are here: <a href="index.html">Home</a><span class="crumbs-span">»</span><span>Portfoilo</span></div>
+				<div class="crumbs"><?php echo __('Voçê esta aqui: '); ?><a href="<?php echo $this->base ?>/"><?php echo __('Home'); ?></a><span class="crumbs-span">»</span><span><?php echo __('Sobre Nós'); ?></span></div>
 			</div>
 		</div><!-- End row -->
 	</div><!-- End container -->
@@ -19,7 +19,7 @@
 	<div class="container">
 
 		<div class="head-title">
-			<div class="head-title"><h6>Parceiros</h6></div>
+			<div class="head-title"><h6><?php echo __('Sobre Nós'); ?></h6></div>
 		</div><!-- End sections-title -->
 		<div class="row">
 			<div class="col-md-4">

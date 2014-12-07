@@ -33,6 +33,11 @@
 				                </div>
 				                <div class="span12 field-box">
 			                    <?php 
+					            	echo $this->Form->input('slug', array('label'=>'URL do Serviço','placeholder'=>'Preenchimento Obrigatório', 'class'=>'span9', 'error' => array('attributes' => array('wrap' => 'span', 'class' => 'alert-msg'))));
+					            ?>
+				                </div>
+				                <div class="span12 field-box">
+			                    <?php 
 					            	echo $this->Form->input('designacao', array('label'=>'Designação:','placeholder'=>'Preenchimento Obrigatório', 'class'=>'span9', 'error' => array('attributes' => array('wrap' => 'span', 'class' => 'alert-msg'))));
 					            ?>
 				                </div>

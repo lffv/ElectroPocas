@@ -31,6 +31,10 @@
 	Router::connect('/', array('controller' => 'home', 'action' => 'home'));
 
 	//Sobre Nós Route
+	Router::connect('/acerca', array('controller' => 'home', 'action' => 'sobrenos'));
+	Router::connect('/Acerca', array('controller' => 'home', 'action' => 'sobrenos'));
+	Router::connect('/about', array('controller' => 'home', 'action' => 'sobrenos'));
+	Router::connect('/About', array('controller' => 'home', 'action' => 'sobrenos'));
 	Router::connect('/aboutus', array('controller' => 'home', 'action' => 'sobrenos'));
 	Router::connect('/AboutUs', array('controller' => 'home', 'action' => 'sobrenos'));
 	Router::connect('/sobrenos', array('controller' => 'home', 'action' => 'sobrenos'));
@@ -49,10 +53,19 @@
 	Router::connect('/servicos/:page', array('controller' => 'home', 'action' => 'servicos'),array('pass'=>array('page')));
 	Router::connect('/Servicos/:page', array('controller' => 'home', 'action' => 'servicos'),array('pass'=>array('page')));
 	
+	//Serviço
+	Router::connect('/servico/:slug', array('controller' => 'home', 'action' => 'servico'),array('pass'=>array('slug')));
+	Router::connect('/Servico/:slug', array('controller' => 'home', 'action' => 'servico'),array('pass'=>array('slug')));
+
 	//Dicas
-	Router::connect('/dicasdepoupanca', array('controller' => 'home', 'action' => 'dicas'));
 	Router::connect('/DicasDePoupanca', array('controller' => 'home', 'action' => 'dicas'));
+	Router::connect('/dicasdepoupanca', array('controller' => 'home', 'action' => 'dicas'));
+	Router::connect('/dicas', array('controller' => 'home', 'action' => 'dicas'));
+	Router::connect('/Dicas', array('controller' => 'home', 'action' => 'dicas'));
 	
+	
+	Router::connect('/noticia/:hash', array('controller' => 'home', 'action' => 'findNoticia'),array('pass'=>array('hash')));
+	Router::connect('/Noticia/:hash', array('controller' => 'home', 'action' => 'findNoticia'),array('pass'=>array('hash')));
 	Router::connect('/noticias', array('controller' => 'home', 'action' => 'noticias'));
 	Router::connect('/Noticias', array('controller' => 'home', 'action' => 'noticias'));
 	Router::connect('/noticias/:page', array('controller' => 'home', 'action' => 'noticias'),array('pass'=>array('page')));

@@ -3,11 +3,11 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-6">
-				<h4>Contact Us</h4>
-				<span>We Wanna Hear From You :)</span>
+				<h4><?php echo __('Serviços'); ?></h4>
+				<span>Latest Awesome &amp; Creative Works</span>
 			</div>
 			<div class="col-md-6">
-				<div class="crumbs">You are here: <a href="index.html">Home</a><span class="crumbs-span">&raquo;</span><span>Contact</span></div>
+				<div class="crumbs"><?php echo __('Voçê esta aqui: '); ?><a href="<?php echo $this->base ?>/"><?php echo __('Home'); ?></a><span class="crumbs-span">»</span><span><?php echo __('Contactos'); ?></span></div>
 			</div>
 		</div><!-- End row -->
 	</div><!-- End container -->

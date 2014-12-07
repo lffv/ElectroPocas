@@ -351,7 +351,7 @@
 <!-- END SLIDESHOW -->
 
 <!--SERVICOS-->
-	<div class="sections section-2">
+	<div class="sections">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12">
@@ -365,23 +365,27 @@
 										<?php foreach ($bloco as $serv) :	
 											
 										?>
-								 			<div class="col-md-3 portfolio-item">
-												<div class="portfolio-one">
-													<div class="portfolio-head">
-														<div class="portfolio-img"><img alt="<?php echo $serv['Servico']['designacao']?>" src="<?php echo $this->base."/uploads/".$serv['Servico']['imagem']; ?>"></div>
-														<div class="portfolio-hover">
-															<a class="portfolio-link" href="single-portfolio.html"><i class="fa fa-link"></i></a>
-															<a class="portfolio-zoom prettyPhoto" href="<?php echo $this->base."/uploads/".$serv['Servico']['imagem']; ?>"><i class="fa fa-search"></i></a>
-														</div>
-													</div><!-- End portfolio-head -->
-													<div class="portfolio-content">
-														<i class="fa fa-leaf"></i>
-														<div class="portfolio-meta">
-															<div class="portfolio-name"><h6><a href="single-portfolio.html"><?php echo $serv['Servico']['designacao']?></a></h6></div>
-														</div><!-- End portfolio-meta -->
-													</div><!-- End portfolio-content -->
-												</div><!-- End portfolio-item -->
-											</div>
+
+
+<div class="col-md-3 portfolio-item">
+	<div class="portfolio-one">
+		<div class="portfolio-head">
+			<div class="portfolio-img"><img alt="<?php echo $serv['Servico']['designacao']?>" src="<?php echo $this->base."/uploads/".$serv['Servico']['imagem']; ?>"></div>
+			<div class="portfolio-hover">
+				<a class="portfolio-link" href="<?php echo $this->base."/Servico/".$serv['Servico']['slug'] ?>"><i class="fa fa-link"></i></a>
+				<a class="portfolio-zoom prettyPhoto" href="<?php echo $this->base."/uploads/".$serv['Servico']['imagem']; ?>"><i class="fa fa-search"></i></a>
+			</div>
+		</div><!-- End portfolio-head -->
+		<div class="portfolio-content">
+			<i class="fa fa-leaf"></i>
+			<div class="portfolio-meta">
+				<div class="portfolio-name"><h6><a href="<?php echo $this->base."/Servico/".$serv['Servico']['slug'] ?>"><?php echo $serv['Servico']['designacao']?></a></h6></div>
+			</div><!-- End portfolio-meta -->
+		</div><!-- End portfolio-content -->
+	</div><!-- End portfolio-item -->
+</div>
+
+
 								 		<?php endforeach; ?>
 									</li>
 							 	<?php endforeach; ?>						
@@ -395,7 +399,7 @@
 <!-- END SERVICOS -->
 
 <!--DICAS-->
-	<div class="sections">
+	<div class="sections  section-2">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12">
@@ -406,14 +410,15 @@
 							<?php foreach ($data->dicas as $bloco) :	?>
 					 			<li>
 									<?php foreach ($bloco as $dicaTmp) :	
-										$dica = $dicaTmp['Dica'];
+										$dica = $dicaTmp['CategoriasDica'];
+										//echo debug($dica);
 									?>
 										<div class="col-md-3">
 											<div class="box-icon">
 												<div class="box-icon-i box-icon-i-2 box-icon-i-3 box-icon-i-4"><i class="fa fa-heart"></i></div>
 												<div class="box-icon-content">
-													<h5><?php echo $dica['titulo']?></h5>
-													<p><?php echo $dica['texto']?></p>
+													<h5><?php echo $dica['designacao']?></h5>
+													<!--<p><?php echo $dica['texto']?></p>-->
 												</div>
 											</div>
 										</div>
@@ -431,7 +436,7 @@
 
 
 <!--NOTICIAS-->
-	<div class="sections section-2">
+	<div class="sections">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12">
@@ -491,7 +496,7 @@
 <!-- END NOTICIAS -->
 
 <!-- PARCEIROS -->
-	<div class="sections sections-padding-b-50">
+	<div class="sections  section-2 sections-padding-b-50">
 		<div class="container">
 			<div class="head-title"><h6>Parceiros</h6></div>
 			<div class="row">
@@ -499,8 +504,8 @@
 					<ul>
 					<?php foreach ($data->parceiros as $bloco) :	?>
 			 			<li>
-							<?php foreach ($bloco as $parc) :	
-								
+							<?php 
+								foreach ($bloco as $parc) :	
 							?>
 							<div class="col-md-2 client-item">
 								<div class="client"><a target="_blank" href="<?php echo $parc['Parceiro']['link']; ?>"><img alt="<?php echo $parc['Parceiro']['designacao']; ?>" src="<?php echo $this->base."/uploads/".$parc['Parceiro']['imagem']; ?>"></a></div>

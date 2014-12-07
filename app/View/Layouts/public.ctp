@@ -1,16 +1,19 @@
 <!DOCTYPE html>
-<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
-<!--[if IE 9 ]><html class="ie ie9" lang="en"> <![endif]-->
-<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="pt"> <![endif]-->
+<!--[if IE 9 ]><html class="ie ie9" lang="pt"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="pt"> <!--<![endif]-->
 <head>
 
 	<!-- Basic Page Needs -->
 	<meta charset="utf-8">
-	<title>Ori – Multi-purpose Business HTML Template</title>
-	<meta name="description" content="Ori – Multi-purpose Business HTML Template">
-	<meta name="author" content="2code.info">
+	<title>ElectroPoças</title>
+	<meta name="title" content="<?php echo $metatags[0]['Metatag']['title'] ?>">
+	<meta name="description" content="<?php echo $metatags[0]['Metatag']['description'] ?>">
+	<meta name="keywords" content="<?php echo $metatags[0]['Metatag']['keywords'] ?>">
+	<meta name="author" content="ElectroPoças, lda.">
 	
-
+	<meta name="fragment" content="!">
+	<meta name="robots" content="index, follow">
 	<?php 
 		
     	echo $this->Html->css('style.css');
@@ -21,7 +24,7 @@
 	?>
 	
 	<!-- Favicons -->
-	<link rel="shortcut icon" href="images/favicon.png">
+	<link rel="shortcut icon" href="<?php echo $this->base ?>/images/favicon.ico">
   
 </head>
 <body>
@@ -103,7 +106,8 @@
 		echo $this->Html->script('jquery.nicescroll.min');
 	    echo $this->Html->script('jquery.appear');
 	    echo $this->Html->script('count-to');
-        echo $this->Html->script('twitter/jquery.tweet');
+        echo $this->Html->script('smooth-scroll.min');
+	    echo $this->Html->script('twitter/jquery.tweet');
         echo $this->Html->script('jquery.inview.min');
         echo $this->Html->script('jquery.prettyPhoto');
         echo $this->Html->script('jquery.bxslider.min');

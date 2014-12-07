@@ -27,13 +27,13 @@
 			$classContacto = "current_page_item";
 			break;
 		
-		default: break;
+		default: $classServico = "current_page_item"; break;
 	}
 ?>
 
 <nav class="navigation">
 	<ul>
-		<li class="<?php echo $classHome; ?>"><a href="<?php echo $this->base ?>"><?php echo __('Home'); ?></a></li>
+		<li class="<?php echo $classHome; ?>"><a href="<?php echo $this->base ?>/"><?php echo __('Home'); ?></a></li>
 		<li class="<?php echo $classAbout; ?>"><a href="<?php echo $this->base ?>/AboutUs"><?php echo __('Sobre Nós'); ?></a></li>
 		<li class="<?php echo $classServico; ?>"><a href="<?php echo $this->base ?>/Servicos"><?php echo __('Serviços'); ?></a></li>
 		<li class="<?php echo $classDica; ?>"><a href="<?php echo $this->base ?>/DicasDePoupanca"><?php echo __('Dicas de Poupanca'); ?></a></li>

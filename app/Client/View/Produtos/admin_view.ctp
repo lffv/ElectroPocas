@@ -34,7 +34,13 @@
 					                        ?>
 			                    		</div>					                
 			                    	</div>
-				            		
+				            		<div class="span12 field-box">
+				                    	<div class="input text">
+				                    		<label for="designacao">Texto:</label>
+                		                        <?php echo $produto['Produto']['texto']; ?>
+			                    		</div>					                
+			                    	</div>
+				            		<?php /*
 				            		<div class="span12 field-box">
 				                    	<div class="input text">
 				                    		<label for="designacao">Titulo Metatags:</label>
@@ -56,6 +62,7 @@
 				                    		
 			                    		</div>					                
 			                    	</div>
+			                    	*/?>
 					                <div class="span12 field-box">
 				                    	<div class="input text">
 				                    		<label for="designacao">Imagem:</label>
