@@ -42,9 +42,10 @@
 
 	//CoNTACTOS
 	Router::connect('/contact', array('controller' => 'home', 'action' => 'contactos'));
-	Router::connect('/Contact', array('controller' => 'home', 'action' => 'contactos'));
+	Router::connect('/contact', array('controller' => 'home', 'action' => 'contactos'));
 	Router::connect('/contactos', array('controller' => 'home', 'action' => 'contactos'));
 	Router::connect('/Contactos', array('controller' => 'home', 'action' => 'contactos'));
+	Router::connect('/contact/sendMail', array('controller' => 'home', 'action' => 'sendMail'));
 
 
 	//Serviços
@@ -70,6 +71,10 @@
 	Router::connect('/Noticias', array('controller' => 'home', 'action' => 'noticias'));
 	Router::connect('/noticias/:page', array('controller' => 'home', 'action' => 'noticias'),array('pass'=>array('page')));
 	Router::connect('/Noticias/:page', array('controller' => 'home', 'action' => 'noticias'),array('pass'=>array('page')));
+
+
+
+	Router::connect('/Search', array('controller' => 'home', 'action' => 'search'));
 	
 
 	Router::connect('/admin', array('controller' => 'users', 'action' => 'login'));

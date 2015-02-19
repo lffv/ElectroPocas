@@ -29,6 +29,12 @@
 					            ?>
 				                </div>
 
+				                <div class="span12 field-box">
+			                    <?php 
+					            	echo $this->Form->input('hashtag', array('label'=>'HashTag:','placeholder'=>'Preenchimento Obrigatório', 'class'=>'span9', 'error' => array('attributes' => array('wrap' => 'span', 'class' => 'alert-msg'))));
+					            ?>
+				                </div>
+
 				                <div class="field-box">
 			                        <?php				
 									echo $this->Form->input('activo', array('class'=>'bs-switch','label'=>false, 'div'=>false,'before'=>'<label>Activo:</label><label class="checkbox"><div class="checker"><span>', 'after'=>'</span></div></label>', 'error' => array('attributes' => array('wrap' => 'span', 'class' => 'alert-msg'))));

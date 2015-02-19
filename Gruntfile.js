@@ -96,7 +96,7 @@ module.exports = function(grunt) {
     //'rename:renameActDb',
     //'rename:renameOnlineDb',
     'compress:canvas',
-    'ftp-deploy:canvas',
+    //'ftp-deploy:canvas',
   ]);
   //grunt.registerTask('deploy-webapp', ['clean:webapp', 'copy:webapp', 'replace:webapp', 'ftp-deploy:webapp']);
 };

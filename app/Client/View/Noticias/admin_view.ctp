@@ -53,6 +53,7 @@
 					                        ?>
 			                    		</div>					                
 			                    	</div>
+
 			                    	<?php 
 									
 			                    	foreach ($noticia['Image'] as $key => $value):  ?>
@@ -63,7 +64,18 @@
 			                    		</div>					                
 			                    	</div>	
 					                <?php endforeach;?>
-					                
+					                <div class="span12 field-box">
+				                    	<div class="input text">
+				                    		<label for="designacao">Imagem Thumb:</label>
+	            		                        <img src="<?php echo $this->base; ?>/uploads/<?php echo $noticia['Noticia']['imagem_thumb']; ?>">	
+			                    		</div>	
+		                    		</div>
+		                    		<div class="span12 field-box">
+				                    	<div class="input text">
+				                    		<label for="designacao">Imagem Mini:</label>
+	            		                        <img src="<?php echo $this->base; ?>/uploads/<?php echo $noticia['Noticia']['imagem_mini']; ?>">	
+			                    		</div>	
+		                    		</div>
 					            </div>
 							</div>							
 							</div>

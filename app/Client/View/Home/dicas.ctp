@@ -3,11 +3,11 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-6">
-				<h4><?php echo __('Dicas de Poupança'); ?></h4>
-				<span>Latest Awesome &amp; Creative Works</span>
+				<h4 style="margin-top:17px;"><?php echo __('Dicas de Poupança'); ?></h4>
+				
 			</div>
 			<div class="col-md-6">
-				<div class="crumbs"><?php echo __('Voçê esta aqui: '); ?><a href="<?php echo $this->base ?>/"><?php echo __('Home'); ?></a><span class="crumbs-span">»</span><span><?php echo __('Dicas de Poupança'); ?></span></div>
+				<div class="crumbs"><?php echo __('Você esta aqui: '); ?><a href="<?php echo $this->base ?>/"><?php echo __('Home'); ?></a><span class="crumbs-span">»</span><span><?php echo __('Dicas de Poupança'); ?></span></div>
 			</div>
 		</div><!-- End row -->
 	</div><!-- End container -->
@@ -17,8 +17,8 @@
 		$i=1;
 		foreach ($data->dicas as $categoria) :
 	?>
-	<div class="sections <?php if($i%2 == 0){echo'section-2';} $i++; ?>">
-	<div class="container">
+	<div class="sections <?php if($i%2 == 0){echo'section-2';} $i++; ?>" id="<?php echo $categoria['CategoriasDica']['hashtag'];?>">
+	<div class="container" >
 		<div class="head-title"><h6><?php echo $categoria['CategoriasDica']['designacao'] ?></h6></div>
 		<div class="row">
 			<div class="bxslider-slide bxslider-slide-title clients-slide">			

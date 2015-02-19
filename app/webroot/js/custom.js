@@ -1,16 +1,4 @@
 (function($) { "use strict";
-
-
-
-
-	/* Noticias HashTag Handler*/
-
-	if(window.location.hash){
-		
-		var hash = window.location.hash.substr(1, window.location.hash.length);
-		smoothScroll.animateScroll( null, '#'+hash , {"offset": 250 });
-		
-	}
 	
 	/* Menu */
 	jQuery(".navigation  ul li ul").parent("li").addClass("parent-list");
@@ -57,7 +45,7 @@
 			jQuery(".navigation_mobile").removeClass("navigation");
 			jQuery(".navigation_mobile").each(function () {
 				if (!jQuery(this).find(".navigation_mobile_click").length) {
-					jQuery(this).prepend("<div class='navigation_mobile_click'>Go to...</div>");
+					jQuery(this).prepend("<div class='navigation_mobile_click'>Ir Para...</div>");
 				}
 			});
 		}
@@ -73,7 +61,7 @@
 		jQuery(".navigation_mobile").removeClass("navigation");
 		jQuery(".navigation_mobile").each(function () {
 			if (!jQuery(this).find(".navigation_mobile_click").length) {
-				jQuery(this).prepend("<div class='navigation_mobile_click'>Go to...</div>");
+				jQuery(this).prepend("<div class='navigation_mobile_click'>Ir Para...</div>");
 			}
 		});
 	}
@@ -284,33 +272,43 @@
 		var message	= jQuery("#message").val();
 		var data = {'name':name,'mail':mail,'message':message};
 		if (name == "") {
-			jQuery("#name").after('<span class="form-description required-error">Please fill the required field.</span>');
+			jQuery("#name").after('<span class="form-description required-error">Por favor preencha este campo.</span>');
 		}else {
 			jQuery("#name").parent().find('.required-error').remove();
 		}
 		if (mail == "") {
-			jQuery("#mail").after('<span class="form-description required-error">Please fill the required field.</span>');
+			jQuery("#mail").after('<span class="form-description required-error">Por favor preencha este campo.</span>');
 		}else {
 			jQuery("#mail").parent().find('.required-error').remove();
 		}
 		if (message == "") {
-			jQuery("#message").after('<span class="form-description required-error">Please fill the required field.</span>');
+			jQuery("#message").after('<span class="form-description required-error">Por favor preencha este campo.</span>');
 		}else {
 			jQuery("#message").parent().find('.required-error').remove();
 		}
 		
 		if (name != "" && mail != "" && message != "") {
-			jQuery.post("contact_us.php",data,function (result) {
-				if (result == "done") {
-					jQuery(".contact-alert").remove();
-					thisform.prepend("<div class='alerts contact-alert'><i class='fa fa-check-circle'></i><div><h3>Thank you "+name+"!</h3><p> We'll be in touch real soon .</p></div></div>");
-					jQuery("#name").val("");
-					jQuery("#mail").val("");
-					jQuery("#message").val("");
+			
+			$.ajax({
+				url:thisform.attr('action'),
+				dataType:'json',
+				data:{'name':name, 'mail':mail, 'message':message},
+				success:function(result){
+					console.log(result);
+			//jQuery.post(thisform.attr('action'),data,function (result) {
+					if (result == "done") {
+						jQuery(".contact-alert").remove();
+						thisform.prepend("<div class='alerts contact-alert'><i class='fa fa-check-circle'></i><div><h3>Muito Obrigado "+name+"!</h3><p> Tentaremos ser breves na resposta.</p></div></div>");
+						jQuery("#name").val("");
+						jQuery("#mail").val("");
+						jQuery("#message").val("");
+					}
 				}
 			});
 		}
-		return false;
+		else{
+			return false;
+		}
 	});
 	
 	/* Lightbox */
@@ -357,11 +355,6 @@
 	*/
 	jQuery(".sidebar-tweet ul").bxSlider({easing: "linear",tickerHover: true,slideWidth: 1170,adaptiveHeightSpeed: 1500,moveSlides: 1,maxSlides: 1,auto: true});
 
-
-	 
-
-
-	
 	var mapa = document.getElementById("mapa");
 
     if(mapa){
@@ -370,16 +363,33 @@
           center: new google.maps.LatLng(41.390931,-7.999344),
           scrollwheel: false,
           zoom: 16,
-          mapTypeId: google.maps.MapTypeId.ROADMAP
+          mapTypeId: google.maps.MapTypeId.ROADMAP,
+          zoomControlOptions: {
+		     style: google.maps.ZoomControlStyle.LARGE
+		  },
         };
 
         var map = new google.maps.Map(mapa, mapOptions);
 		
 		var marker = new google.maps.Marker({
 		    position: mapOptions.center,
+
 		    map: map,
-		    title:"Electro Poças"
+		    title:"Electro Poças",
+		    icon:"http://localhost/ElectroPocas/images/marker_electro.png"
 		});
+
+		var infowindow = new google.maps.InfoWindow(
+		{ 
+			content: '',
+			size: new google.maps.Size(200,200)
+		});
+
+		google.maps.event.addListener(marker, 'click', function() {
+			//infowindow.open(map,marker);
+			window.open("https://www.google.pt/maps/place/Electro+Po%C3%A7as/@41.390931,-7.999344,17z/data=!3m1!4b1!4m2!3m1!1s0xd24c6630fa8d8e1:0x7f7009b46de1ad73");
+		});
+
     }
 
 
@@ -394,6 +404,91 @@
 		});
 	});
 */
-	 	
+	 	/* Noticias HashTag Handler*/
+
+	if(window.location.hash){
+		
+		var hash = window.location.hash.substr(1, window.location.hash.length);
+		smoothScroll.animateScroll( null, '#'+hash , {"offset": 150 });
+		
+	}
+	/*
+	gapi.client.setApiKey('AIzaSyB2H32w2ZVkil901usHWRlmhyFVhJUIx4g');   
+
 	
+    gapi.client.load('urlshortener', 'v1',function(){
+
+	$('.social-ul.social-ul-2.post-social .social-twitter').each(function(ind, it){
+		var request = gapi.client.urlshortener.url.insert({
+            'resource': {
+              'longUrl': $(it).attr('data-url')
+            }
+    	});
+    	request.execute(function(response){
+    		$(it).attr('data-url',response.id);
+			console.log(response.id);
+		});
+		$('.social-twitter').sharrre({
+	      share: { twitter: true },
+	      //url: response.id,
+	      //text: 'OLA MUNDO',
+	      enableHover: false,
+	      enableTracking: false,
+	      template: '<a href="#"><i class="fa fa-twitter"></i></a>',
+	      buttons: { twitter: {via: 'ElectroPoças'}},
+	      click: function(api, options){
+	        //api.simulateClick();
+	        api.openPopup('twitter');
+	        return false;
+	      }
+	    });
+	});
+	*/
+    		
+   	$('.social-twitter.share-btn').sharrre({
+      share: { twitter: true },
+      //url: response.id,
+      //text: 'OLA MUNDO',
+      enableHover: false,
+      enableTracking: false,
+      template: '<a href="#"><i class="fa fa-twitter"></i></a>',
+      buttons: { twitter: {via: 'ElectroPoças'}},
+      click: function(api, options){
+        //api.simulateClick();
+        api.openPopup('twitter');
+        return false;
+      }
+    });
+    	
+    
+
+	var url = 'http://localhost/ElectroPocas/';
+
+	$('.social-facebook.share-btn').sharrre({
+      share: { facebook: true },
+      //url: 'http://test.electropocas.pt/OG/share/',
+      enableHover: false,
+      enableTracking: false,
+      template: '<a href="#"><i class="fa fa-facebook"></i></a>',
+      click: function(api, options){
+      		
+
+          api.openPopup('facebook');
+          return false;
+      }
+    });
+
+
+    $('.social-google.share-btn').sharrre({
+        share: { googlePlus: true },
+        //url: url,
+        enableHover: false,
+        enableTracking: false,
+        template: '<a href="#"><i class="fa fa-google-plus"></i></a>',
+        click: function(api, options){
+          api.openPopup('googlePlus');
+          return false;
+        }
+    });
+
 })(jQuery);

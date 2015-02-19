@@ -25,21 +25,10 @@
                 		<img src="cid:my" />
                     	
                     </a>
-                    <h3>Hi there, <?php echo $name; ?> with email : <?php echo $email; ?> have to pay <?php echo $price; ?></h3>
-                    <p>IParticipação Aprovada</p>
-                    <p>Cras mattis consectetur purus sit amet fermentum. Maecenas faucibus mollis interdum. Curabitur blandit tempus porttitor. Donec id elit non mi porta gravida at eget metus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Nulla vitae elit libero, a pharetra augue.</p>
-                    <h3>How do I use it?</h3>
-                    <p>All the information you need is on GitHub.</p>
-                    <table>
-                        <tr>
-                            <td class="padding">
-                                <p><a href="#">View the source and instructions on GitHub</a></p>
-                            </td>
-                        </tr>
-                    </table>
-                    <p>Feel free to use, copy, modify this email template as you wish.</p>
-                    <p>Thanks, have a lovely day.</p>
-                    <p><a href="#e">Follow @blleb on Twitter</a></p>
+                    <h3>O CLiente <?php echo $name; ?> com o email : <?php echo $email; ?> entrou em contacto.</h3>
+                    <p>Esta foi a sua mensagem</p>
+                    <p> <?php echo $price; ?></p>
+                    
                 </td>
             </tr>
         </table>

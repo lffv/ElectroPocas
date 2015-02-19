@@ -116,7 +116,7 @@
 										<img class="span3" src="<?php echo $this->base; ?>/uploads/<?php echo $this->data['Slide']['bg_imagem']; ?>">
 										<!--<img class="span3" src="<?php echo $this->data['Slide']['bg_imagem']; ?>">-->
 				                </div>
-				                <div class="span12 field-box sl1 sl3 sl4w">
+				                <div class="span12 field-box sl1 sl3 sl4">
 				                    <?php 
 						            	echo $this->Form->input('titulo', array('label'=>'Titulo:','class'=>'span9', 'error' => array('attributes' => array('wrap' => 'span', 'class' => 'alert-msg'))));
 						            ?>

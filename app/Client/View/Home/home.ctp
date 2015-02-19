@@ -13,7 +13,7 @@
 
 					if($slide['tipo_layout'] == 1): 
 					 	?>
-						<li data-transition="<?php echo $slide['transicao']; ?>" data-slotamount="7" data-masterspeed="1500">
+						<li data-transition="<?php echo $slide['transicao']; ?>" data-slotamount="7" data-masterspeed="2000">
 							<!-- MAIN IMAGE -->
 							<img src="<?php echo $this->base."/uploads/".$slide['bg_imagem']; ?>" alt="" data-bgfit="cover" data-bgposition="left top" data-bgrepeat="no-repeat">
 							
@@ -92,12 +92,14 @@
 						</li>
 					<?php 
 					endif;
+
 				 	if($slide['tipo_layout'] == 2): 
 					?>
 
-						<li data-transition="<?php echo $slide['transicao']; ?>" data-slotamount="7" data-masterspeed="1000">
+						<li data-transition="<?php echo $slide['transicao']; ?>" data-slotamount="7" data-masterspeed="2000">
 							<!-- MAIN IMAGE -->
-							<img src="<?php echo $this->base."/uploads/".$slide['bg_imagem']; ?>" alt="" data-bgfit="cover" data-bgposition="left top" data-bgrepeat="no-repeat">
+							<img src="<?php echo $this->base."/uploads/".$slide['bg_imagem']; ?>" alt="ElectroPoças,Lda
+							" data-bgfit="cover" data-bgposition="left top" data-bgrepeat="no-repeat">
 							
 							<div class="slideshow-bg"
 							data-y="310"
@@ -112,7 +114,7 @@
 								data-speed="400"
 								data-start="1300"
 								data-easing="easeOut"
-								data-endspeed="500"><img src="<?php echo $this->base."/uploads/".$slide['imagem']; ?>" alt="">
+								data-endspeed="500"><img src="<?php echo $this->base."/uploads/".$slide['imagem']; ?>" alt="ElectroPoças,Lda">
 							</div>
 							
 							<!-- Layer NR. 2 -->
@@ -179,9 +181,9 @@
 					endif;
 				 	if($slide['tipo_layout'] == 3): 
 					?>	
-						<li data-transition="<?php echo $slide['transicao']; ?>" data-slotamount="7" data-masterspeed="1000">
+						<li data-transition="<?php echo $slide['transicao']; ?>" data-slotamount="7" data-masterspeed="2000">
 							<!-- MAIN IMAGE -->
-							<img src="<?php echo $this->base."/uploads/".$slide['bg_imagem']; ?>" alt="" data-bgfit="cover" data-bgposition="left top" data-bgrepeat="no-repeat">
+							<img src="<?php echo $this->base."/uploads/".$slide['bg_imagem']; ?>" alt="ElectroPoças,Lda" data-bgfit="cover" data-bgposition="left top" data-bgrepeat="no-repeat">
 							
 							<div class="slideshow-bg"
 							data-y="310"
@@ -196,7 +198,7 @@
 								data-speed="400"
 								data-start="1300"
 								data-easing="easeOut"
-								data-endspeed="500"><img src="<?php echo $this->base."/uploads/".$slide['imagem']; ?>" alt="macbookpro">
+								data-endspeed="500"><img src="<?php echo $this->base."/uploads/".$slide['imagem']; ?>" alt="ElectroPoças,Lda">
 							</div>
 							
 							<!-- Layer NR. 2 -->
@@ -263,6 +265,7 @@
 							</div>
 							
 							<!-- Layer NR. 8 -->
+
 							<div class="tp-caption color large_bg sft start"
 								data-x="985"
 								data-y="210"
@@ -276,9 +279,9 @@
 					endif;
 				 	if($slide['tipo_layout'] == 4): 
 					?>
-						<li data-transition="<?php echo $slide['transicao']; ?>" data-slotamount="7" data-masterspeed="1000">
+						<li data-transition="<?php echo $slide['transicao']; ?>" data-slotamount="7" data-masterspeed="2000">
 							<!-- MAIN IMAGE -->
-							<img src="<?php echo $this->base."/uploads/".$slide['bg_imagem']; ?>" alt="" data-bgfit="cover" data-bgposition="left top" data-bgrepeat="no-repeat">
+							<img src="<?php echo $this->base."/uploads/".$slide['bg_imagem']; ?>" alt="ElectroPoças,Lda" data-bgfit="cover" data-bgposition="left top" data-bgrepeat="no-repeat">
 							
 							<div class="slideshow-bg"
 							data-y="310"
@@ -355,7 +358,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12">
-					<div class="head-title"><h6>Serviços</h6></div>
+					<div class="head-title"> <a href="<?php echo $this->base."/Servicos/" ?>"><h6><?php echo __('Serviços'); ?></h6></a></div>
 					<div class="row">
 
 						<div class="bxslider-slide bxslider-slide-title blog-silde">
@@ -377,7 +380,7 @@
 			</div>
 		</div><!-- End portfolio-head -->
 		<div class="portfolio-content">
-			<i class="fa fa-leaf"></i>
+			<i class="fa <?php echo $serv['Servico']['icon'] ?>"></i>
 			<div class="portfolio-meta">
 				<div class="portfolio-name"><h6><a href="<?php echo $this->base."/Servico/".$serv['Servico']['slug'] ?>"><?php echo $serv['Servico']['designacao']?></a></h6></div>
 			</div><!-- End portfolio-meta -->
@@ -398,12 +401,12 @@
 	</div><!-- End sections -->
 <!-- END SERVICOS -->
 
-<!--DICAS-->
+<!--DICAS
 	<div class="sections  section-2">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12">
-					<div class="head-title"><h6>Dicas de Poupança</h6></div>
+					<div class="head-title"><a href="<?php echo $this->base."/DicasDePoupanca/" ?>" ><h6><?php echo __('Dicas de Poupança'); ?></h6></a></div>
 					<div class="row">
 						<div class="bxslider-slide bxslider-slide-title blog-silde">
 							<ul>
@@ -413,34 +416,35 @@
 										$dica = $dicaTmp['CategoriasDica'];
 										//echo debug($dica);
 									?>
-										<div class="col-md-3">
-											<div class="box-icon">
-												<div class="box-icon-i box-icon-i-2 box-icon-i-3 box-icon-i-4"><i class="fa fa-heart"></i></div>
-												<div class="box-icon-content">
-													<h5><?php echo $dica['designacao']?></h5>
-													<!--<p><?php echo $dica['texto']?></p>-->
-												</div>
-											</div>
-										</div>
+			<div class="col-md-3">
+				<div class="box-icon">
+				<a href="<?php echo $this->base."/DicasDePoupanca/#".$dica['hashtag'] ?>">
+					<div class="box-icon-i box-icon-i-2 box-icon-i-3 box-icon-i-4"><i class="fa fa-heart"></i></div>
+					<div class="box-icon-content">
+						<h5><?php echo $dica['designacao']?></h5>
+					</div>
+				</a>
+				</div>
+			</div>
 									<?php endforeach; ?>
 								</li>
 						 	<?php endforeach; ?>
 							</ul>
-						</div><!-- End blog-silde -->
-					</div><!-- End row -->
+						</div>
+					</div>
 				</div>
-			</div><!-- End row -->
-		</div><!-- End container -->
-	</div><!-- End sections -->
+			</div>
+		</div>
+	</div>
 <!-- END DICAS -->
 
 
 <!--NOTICIAS-->
-	<div class="sections">
+	<div class="sections section-2">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12">
-					<div class="head-title"><h6>Notícias</h6></div>
+					<div class="head-title"><a href="<?php echo $this->base."/Noticias/" ?>"><h6><?php echo __('Notícias'); ?></h6></a></div>
 					<div class="row">
 						<div class="bxslider-slide bxslider-slide-title blog-silde">
 							<ul>
@@ -448,7 +452,9 @@
 					 			<li>
 									<?php foreach ($bloco as $noticiaTmp) :	
 										$noticia = $noticiaTmp;
-										$dataNoticia = explode('/',$noticia['Noticia']['data']);
+										
+										$dataNoticia = explode('-',$noticia['Noticia']['data']);
+										$dataNoticia[2] = substr($dataNoticia[2],0, 2);
 										switch ($dataNoticia[1]) {
 											case 1: $mes ="Jan";break;
 											case 2: $mes ="Fev";break;
@@ -465,23 +471,30 @@
 											default:break;
 										}
 									?>
-									<div class="col-md-4 blog-item">
-										<div class="blog-one">
-											<div class="blog-img">
-												<img alt="" src="<?php echo $this->base."/uploads/".$noticia['Image'][0]['name']; ?>">
-												<div class="blog-date"><span><?php echo $dataNoticia[0];?></span><span><?php echo $mes.', '.$dataNoticia[0];?></span></div>
-											</div><!-- End blog-img -->
-											<div class="blog-content">
-												<h6><a href="single-blog.html">Blog Tiltle Shall Be Here !</a></h6>
-												<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer lorem quam, adipiscing condimentum tristique vel, turpis. <a href="single-blog.html">Read More</a></p>
-											</div><!-- End blog-content -->
-											<div class="blog-meta">
-												<div class="blog-author"><i class="fa fa-user"></i>Author : <a href="#">Begha</a></div>
-												<div class="blog-comments"><i class="fa fa-comments"></i>Comments : <a href="#">22</a></div>
-											</div><!-- End blog-meta -->
-											<div class="clearfix"></div>
-										</div><!-- End blog-item -->
-									</div>
+
+
+	<div class="col-md-4 blog-item">
+		<div class="blog-one">
+			<div class="blog-img">
+				<img alt="<?php echo $noticia['Noticia']['titulo']?>" src="<?php echo $this->base."/uploads/".$noticia['Noticia']['imagem_thumb']; ?>">
+				<div class="blog-date"><span><?php echo $dataNoticia[2];?></span><span><?php echo $mes.', '.$dataNoticia[0];?></span></div>
+			</div><!-- End blog-img -->
+			<div class="blog-content">
+				<h6><a href="<?php echo $this->base."/Noticia/".$noticia['Noticia']['hashtag'] ?>"><?php echo $noticia['Noticia']['titulo']?></a></h6>
+				<p><?php echo substr($noticia['Noticia']['texto'],0, 132); 
+
+
+						if(strlen($noticia['Noticia']['texto']) > 132):
+							echo "... ";
+						endif;
+					?> 
+					<a href="<?php echo $this->base."/Noticia/".$noticia['Noticia']['hashtag'] ?>">Read More</a></p>
+			</div><!-- End blog-content -->
+		</div><!-- End blog-item -->
+	</div>
+
+
+
 									<?php endforeach; ?>
 								</li>
 						 	<?php endforeach; ?>
@@ -496,9 +509,9 @@
 <!-- END NOTICIAS -->
 
 <!-- PARCEIROS -->
-	<div class="sections  section-2 sections-padding-b-50">
+	<div class="sections sections-padding-b-50">
 		<div class="container">
-			<div class="head-title"><h6>Parceiros</h6></div>
+			<div class="head-title"><h6><?php echo __('Parceiros'); ?></h6></div>
 			<div class="row">
 				<div class="bxslider-slide bxslider-slide-title clients-slide">
 					<ul>

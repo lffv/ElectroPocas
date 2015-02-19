@@ -3,11 +3,10 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-6">
-				<h4><?php echo __('Serviços'); ?></h4>
-				<span>Latest Awesome &amp; Creative Works</span>
+				<h4 style="margin-top:17px;"><?php echo __('Contactos'); ?></h4>
 			</div>
 			<div class="col-md-6">
-				<div class="crumbs"><?php echo __('Voçê esta aqui: '); ?><a href="<?php echo $this->base ?>/"><?php echo __('Home'); ?></a><span class="crumbs-span">»</span><span><?php echo __('Contactos'); ?></span></div>
+				<div class="crumbs"><?php echo __('Você esta aqui: '); ?><a href="<?php echo $this->base ?>/"><?php echo __('Home'); ?></a><span class="crumbs-span">»</span><span><?php echo __('Contactos'); ?></span></div>
 			</div>
 		</div><!-- End row -->
 	</div><!-- End container -->
@@ -15,22 +14,22 @@
 
 <div class="sections sections-padding-t-0">
 	
-	<div id="mapa" style="height:480px;"></div>
 	
+	<div class="contact-iframe"><iframe height="480" src="https://maps.google.com/maps?q=Electro+Poças&amp;hl=pt-PT&amp;sll=26.820553,30.802498&amp;sspn=16.874794,19.753418&amp;hnear=Electro+Poças&amp;t=m&amp;z=16&amp;output=embed&amp;markers=color:blue"></iframe></div>
 	<div class="gap"></div>
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12 main-content">
 				<div class="row">
 					<div class="col-md-9">
-						<div class="section-title section-title-2 section-title-3"><h6>Contact Form :</h6></div>
+						<div class="head-title"><h6><?php echo __('Contacte-nos'); ?></h6></div>
 						<div class="comment-form">
-							<form method="post" class="form-js" action="contact_us.php">
+							<form method="post" class="form-js" action="<?php echo $this->base;?>/Home/sendMail">
 								<div class="row">
 									<div class="col-md-6">
 										<div class="form-input">
 											<i class="fa fa-user"></i>
-											<input name="name" id="name" type="text" placeholder="Your Name">
+											<input name="name" id="name" type="text" placeholder="Nome">
 										</div>
 									</div>
 									<div class="col-md-6">
@@ -42,30 +41,32 @@
 									<div class="col-md-12">
 										<div class="form-input">
 											<i class="fa fa-comment"></i>
-											<textarea name="message" id="message" placeholder="Message"></textarea>
+											<textarea name="message" id="message" placeholder="A sua mensagem..."></textarea>
 										</div>
 									</div>
 									<div class="col-md-12">
-										<input type="submit" class="button-3" value="Send Message">
+										<input type="submit" class="button-3" value="Enviar Mensagem">
 									</div>
 								</div><!-- End row -->
 							</form>
 						</div><!-- End comment-form -->
 					</div>
 					<div class="col-md-3">
-						<div class="section-title section-title-2 section-title-3"><h6>Contact Information :</h6></div>
+						<div class="head-title"><h6><?php echo __('Morada'); ?></h6></div>
 						<div class="contact-information">
 							<ul>
-								<li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer lorem quam, adipiscing condimentum tristique.</li>
-								<li>- 7oroof@7oroof.com</li>
-								<li>- 002 01065370701</li>
+								<li>Edifício do Mercado Municipal <br> Loja H, Britelo,<br>
+									4890 - 220, Celorico de Basto.</li>
+								<li>Dep. Comercial - 962 877 701</li>
+								<li>Dep. Técnico -<br> 962 970 930 | 913 825 171</li>
+								<li>Fax - 255 323 021</li>
+								<li>Email - info@electropocas.pt</li>
 							</ul>
 						</div><!-- End contact-information -->
-						<div class="section-title section-title-2 section-title-3"><h6>Business Hours :</h6></div>
+						<div class="head-title" style="margin-top:20px;"><h6><?php echo __('Horário'); ?></h6></div>
 						<ul class="business-hours">
-							<li>Monday – Friday : 9am to 20 pm</li>
-							<li>Saturday : 9am to 17 pm</li>
-							<li>Sunday : day off</li>
+							<li>Segunda a Sexta :<br> 9h00 - 12h30; 14h30 - 19h00</li>
+							<li>Sábado : 9h00 - 13h00</li>
 						</ul>
 					</div>
 				</div><!-- End row -->

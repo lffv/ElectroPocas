@@ -41,17 +41,30 @@
 				                </div>
 				                <div class="span12 field-box">
 				                <?php 
-					            	echo $this->Form->input('data', array('label'=>'Data', 'class'=>'span9 datepicker', 'error' => array('attributes' => array('wrap' => 'span', 'class' => 'alert-msg'))));
+					            	echo $this->Form->input('data', array('label'=>'Data', 'class'=>'span9 datepicker', 'type'=>'text', 'error' => array('attributes' => array('wrap' => 'span', 'class' => 'alert-msg'))));
 					            ?>
 				                </div>
 				                <div class="span12 field-box">
 								<?php				
 									echo $this->Form->input('activo', array('class'=>'bs-switch','label'=>false, 'div'=>false,'before'=>'<label>Activo:</label><label class="checkbox"><div class="checker"><span>', 'after'=>'</span></div></label>', 'error' => array('attributes' => array('wrap' => 'span', 'class' => 'alert-msg'))));
 								?>
+								</div>
+				                <div class="span12 field-box">
 								<?php
-			                   		echo $this->Form->input('Image.Image.', array('label'=>'Multiplas Imagens','class'=>'btn-flat inverse pull-left','type' => 'file', 'multiple'));
+			                   		echo $this->Form->input('Image.Image.', array('label'=>'Imagem Grande','class'=>'btn-flat inverse pull-left','type' => 'file'));
 					            ?>
+					            
 			                    </div>
+				                <div class="span12 field-box">
+				                    <?php
+				                   		echo $this->Form->input('imagem_thumb', array('label'=>'Imagem Thumb','class'=>'btn-flat inverse pull-left','type' => 'file'));
+						            ?>
+					            </div>
+				                <div class="span12 field-box">
+						            <?php
+				                   		echo $this->Form->input('imagem_mini', array('label'=>'Imagem Mini','class'=>'btn-flat inverse pull-left','type' => 'file' ));
+						            ?>
+					            </div>
 				            </div>
 						</div>
 					</div>
@@ -72,7 +85,7 @@
 <script type="text/javascript">
 	$(function() {
 		//$.datepicker.setDefaults({ dateFormat: 'yy-mm-dd' });
-		$( ".datepicker" ).datepicker({ dateFormat: 'yy/mm/dd' });
+		$( ".datepicker" ).datepicker({ dateFormat: 'dd/mm/yy' });
 		$(".bs-switch").bootstrapSwitch({
 			onColor:'success',
 			offColor:'warning',

@@ -3,12 +3,12 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-6">
-				<h4><?php echo __('Serviços'); ?></h4>
-				<span>Latest Awesome &amp; Creative Works</span>
+				<h4 style="margin-top:17px;"><?php echo __('Serviços'); ?></h4>
+				
 			</div>
 			<div class="col-md-6">
 				<div class="crumbs">
-					<?php echo __('Voçê esta aqui: '); ?>
+					<?php echo __('Você esta aqui: '); ?>
 						<a href="<?php echo $this->base ?>/">
 							<?php echo __('Home'); ?>
 						</a>
@@ -31,7 +31,7 @@
 			<div class="col-md-12">
 				<div class="single-portfolio-slide">
 					<ul>
-						<li><img alt="" src="<?php echo $this->base."/uploads/".$servico['Servico']['imagem']; ?>"></li>
+						<li><img alt="<?php echo $servico['Servico']['designacao']; ?>" src="<?php echo $this->base."/uploads/".$servico['Servico']['imagem']; ?>"></li>
 					</ul>
 				</div><!-- End single-portfolio-slide -->
 			</div>
@@ -51,7 +51,7 @@
 							<div class="col-md-4 blog-item">
 								<div class="blog-one">
 									<div class="blog-img">
-										<img alt="" src="<?php echo $this->base."/uploads/".$produto['imagem']; ?>">
+										<img alt="<?php echo $produto['designacao']; ?>" src="<?php echo $this->base."/uploads/".$produto['imagem']; ?>">
 										
 									</div><!-- End blog-img -->
 									<div class="blog-content">

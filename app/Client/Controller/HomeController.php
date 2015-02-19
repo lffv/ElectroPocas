@@ -9,13 +9,152 @@ App::uses('CakeEmail', 'Network/Email');
 class HomeController extends AppController {
 
 	var $scaffold;
-	public $uses = array('Pagina','Slide','Servico', 'Dica', 'Noticia', 'Parceiro', 'CategoriasDica');
+	public $uses = array('Metatag','Produto','Pagina','Slide','Servico', 'Dica', 'Noticia', 'Parceiro', 'CategoriasDica');
 	public $components = array('Paginator');
+	private $results;
+
+	private function mergeResult($prod, $paginas){
+		$results = array();
+		
+		foreach ($prod as $key => $value) {
+			if(!in_array($value['Servico'], $results)) array_push($results, $value['Servico']);
+		}
+		foreach ($paginas as $key => $value) {
+			
+			if($value['Metatag']['model'] == 'Pagina'){
+				if(!in_array($value['Servico'], $results)){
+
+					switch ($value['Pagina']['designacao']) {
+						case 'about':
+								$pagina = array('pagina'=> array(
+																		'url' => 'AboutUs',
+																		'texto' => 'Conheça a Electropoças!'
+									));
+							break;
+						case 'listaServicos':
+								$pagina = array('pagina'=> array(
+																		'url' => 'Servicos',
+																		'texto' => 'Conheça os serviços Electropoças!'
+									));
+							break;
+						case 'dicas':
+								$pagina = array('pagina'=> array(
+																		'url' => 'dicas',
+																		'texto' => 'Conheça as Dicas da Electropoças!'
+									));
+							break;
+						case 'listaNoticias':
+								$pagina = array('pagina'=> array(
+																		'url' => 'DicasDePoupanca',
+																		'texto' => 'Conheça as Notícias da Electropoças!'
+									));
+							break;
+						case 'contacto':
+								$pagina = array('pagina'=> array(
+																		'url' => 'Contactos',
+																		'texto' => 'Entre em contacto com a Electropoças!'
+									));
+							break;
+						default:
+								$pagina = array('pagina'=> array(
+																		'url' => '',
+																		'texto' => 'Conheça a Electropoças!'
+									));
+							break;
+					}
+
+					array_push($results, $pagina);
+				} 
+			}
+			if($value['Metatag']['model'] == 'Servico'){
+				if(!in_array($value['Servico'], $results)) array_push($results, $value['Servico']);
+			}
+		}
+		return($results);
+		
+		
+
+
+
+	}
+
+	public function search(){
+
+		$this->layout = 'public';
+
+		$search = $this->request->data['stringSearch'];
+		
+		$options = array('conditions' => 
+											array( "OR" => array(
+							    				"Metatag.title LIKE" => '%'.$search.'%',
+							    				"Metatag.description LIKE" => '%'.$search.'%',
+							    				"Metatag.keywords LIKE" => '%'.$search.'%'
+							    			)
+											),
+											'recursive' => 1
+										);
+		
+		$metatags = $this->Metatag->find('all', $options);
+		
+		$options = array('conditions' => 
+											array( "OR" => array(
+							    				"Produto.texto LIKE" => '%'.$search.'%',
+							    				"Produto.designacao LIKE" => '%'.$search.'%'
+							    			)
+											)
+										);
+		
+		
+		$produtos = $this->Produto->find('all', $options);
+		
+		debug($produtos);
+		debug($metatags);
+		
+		$this->set('data',$this->mergeResult($produtos, $metatags));
+		$this->set('search', $search);
+		$this->set('metatags',$this->getMetatags(1));
+
+	}
+
+
 /**
  * index method
  *
  * @return void
  */
+	public function sendMail(){
+
+		$this->layout = null ;
+		$this->autoRender = false;
+		
+		
+		$email = $this->request->data['mail'];
+		$name = $this->request->data['name'];
+		$message = $this->request->data['message'];
+
+			$Email = new CakeEmail('gmail');
+			$Email->template('default', 'default');
+			$Email->emailFormat('html');
+			
+			$Email->attachments(array(
+			    'contacts.jpg' => array(
+			        'file' => WWW_ROOT."img/logo.png",
+			        'mimetype' => 'image/jpeg',
+			        'contentId' => 'my'
+			    ),
+			));
+			
+			$Email->viewVars(array('email' => $email, 'name'=> $name, 'price' => $message));
+	        $Email->to('info@electropocas.pt');
+	        $Email->subject('Automagically generated email');
+	        $Email->replyTo('aa@gmail.com');
+	        $Email->from ('aa@gmail.com');
+	        $Email->send();
+			$response = array('action' => 'done');
+			
+		return json_encode($response);
+	}
+
 	public function home() {
 		
 		$this->layout = 'public';
@@ -55,6 +194,8 @@ class HomeController extends AppController {
 
 		$this->set('location',$data->servico['Servico']['designacao']);
 
+		$this->set('subMenuSelect', $slug);
+		
 		$this->set('servico', $data->servico);
 	}
 	
@@ -134,8 +275,6 @@ class HomeController extends AppController {
 			$page = floor($position)+1;
 		}
 		
-		//debug($this->base);
-		//$this->redirect( array('action' => 'Noticias') );
 		$this->redirect( '/Noticias/'.$page.'#'.$hash );
 
 	}
@@ -195,7 +334,9 @@ class HomeController extends AppController {
 
 	private function getNoticias(){
 		$options = array('conditions' => array('Noticia.activo' => 1), 'order'=> array('Noticia.data DESC'));
+		
 		return $this->Noticia->find('all', $options);
+		
 	}
 
 	private function getParceiros(){

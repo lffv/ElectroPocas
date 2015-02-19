@@ -61,6 +61,8 @@ class NoticiasController extends AppController {
 		$this->set('title_for_layout', 'Canvas - Adicionar Noticia');
 		if ($this->request->is('post')) {
 
+			$explodeData = explode('/',$this->request->data['Noticia']['data']);
+			$this->request->data['Noticia']['data'] = $explodeData[2].'-'.$explodeData[0].'-'.$explodeData[1].' 00:00:00';
 			$this->request->data['Image'] = $this->request->data['Image']['Image'];
 
 			for ( $i=0; $i< count($this->request->data['Image']); $i++) {
@@ -81,6 +83,40 @@ class NoticiasController extends AppController {
 					$this->Session->setFlash(__('Não foi possível criar o upload. Por favor, tente novamente.'), 'flash_error');
 				}
 			}
+				$fileType = pathinfo($this->request->data['Noticia']['imagem_thumb']['name'], PATHINFO_EXTENSION);
+				if ($this->request->data['Noticia']['imagem_thumb']['error'] === UPLOAD_ERR_OK) {
+					
+					$id = String::uuid();
+				
+					if (move_uploaded_file($this->request->data['Noticia']['imagem_thumb']['tmp_name'], APP.'webroot/uploads'.DS.$id.'.'.$fileType)) {
+
+						$this->Session->setFlash(__('Upload efetuado com sucesso.'), 'flash_success');
+
+					}
+					$this->request->data['Noticia']['imagem_thumb'] = $id.'.'.$fileType;
+				} else {
+					unset($this->request->data['Noticia']['imagem_thumb']);
+					$this->Session->setFlash(__('Não foi possível criar o upload. Por favor, tente novamente.'), 'flash_error');
+				}
+
+				$fileType = pathinfo($this->request->data['Noticia']['imagem_mini']['name'], PATHINFO_EXTENSION);
+				if ($this->request->data['Noticia']['imagem_mini']['error'] === UPLOAD_ERR_OK) {
+					
+					$id = String::uuid();
+					
+					if (move_uploaded_file($this->request->data['Noticia']['imagem_mini']['tmp_name'], APP.'webroot/uploads'.DS.$id.'.'.$fileType)) {
+
+						$this->Session->setFlash(__('Upload efetuado com sucesso.'), 'flash_success');
+
+					}
+					$this->request->data['Noticia']['imagem_mini'] = $id.'.'.$fileType;
+
+				} else {
+					unset($this->request->data['Noticia']['imagem_mini']);
+					$this->Session->setFlash(__('Não foi possível criar o upload. Por favor, tente novamente.'), 'flash_error');
+				}
+
+
 			$this->Noticia->create();
 			if ($this->Noticia->saveAll($this->request->data)) {
 				$this->Session->setFlash(__('A Noticia foi criado com sucesso.'), 'flash_success');
@@ -108,9 +144,20 @@ class NoticiasController extends AppController {
 		if (!$this->Noticia->exists($id)) {
 			throw new NotFoundException(__('Pagina Inválida'));
 		}
+		$idAux = $id;
 		if ($this->request->is('post') || $this->request->is('put')) {
+
+			
+			$explodeData = explode('/',$this->request->data['Noticia']['data']);
+			if(isset($explodeData[2])):
+
+				$this->request->data['Noticia']['data'] = $explodeData[2].'-'.$explodeData[0].'-'.$explodeData[1].' 00:00:00';
+
+			endif;
 			
 			$this->request->data['Image'] = $this->request->data['Image']['Image'];
+
+			
 			
 			for ( $i=0; $i< count($this->request->data['Image']); $i++) {
 				$fileType = pathinfo($this->request->data['Image'][$i]['name'], PATHINFO_EXTENSION);
@@ -130,11 +177,44 @@ class NoticiasController extends AppController {
 					$this->Session->setFlash(__('Não foi possível criar o upload. Por favor, tente novamente.'), 'flash_error');
 				}
 			}
+				$fileType = pathinfo($this->request->data['Noticia']['imagem_thumb']['name'], PATHINFO_EXTENSION);
+				if ($this->request->data['Noticia']['imagem_thumb']['error'] === UPLOAD_ERR_OK) {
+					
+					$id = String::uuid();
+				
+					if (move_uploaded_file($this->request->data['Noticia']['imagem_thumb']['tmp_name'], APP.'webroot/uploads'.DS.$id.'.'.$fileType)) {
+
+						$this->Session->setFlash(__('Upload efetuado com sucesso.'), 'flash_success');
+
+					}
+					$this->request->data['Noticia']['imagem_thumb'] = $id.'.'.$fileType;
+				} else {
+					//unset($this->request->data['Noticia']['Image']);
+					unset($this->request->data['Noticia']['imagem_thumb']);
+					$this->Session->setFlash(__('Não foi possível criar o upload. Por favor, tente novamente.'), 'flash_error');
+				}
+
+				$fileType = pathinfo($this->request->data['Noticia']['imagem_mini']['name'], PATHINFO_EXTENSION);
+				if ($this->request->data['Noticia']['imagem_mini']['error'] === UPLOAD_ERR_OK) {
+					
+					$id = String::uuid();
+					
+					if (move_uploaded_file($this->request->data['Noticia']['imagem_mini']['tmp_name'], APP.'webroot/uploads'.DS.$id.'.'.$fileType)) {
+
+						$this->Session->setFlash(__('Upload efetuado com sucesso.'), 'flash_success');
+
+					}
+					$this->request->data['Noticia']['imagem_mini'] = $id.'.'.$fileType;
+
+				} else {
+					unset($this->request->data['Noticia']['imagem_mini']);
+					$this->Session->setFlash(__('Não foi possível criar o upload. Por favor, tente novamente.'), 'flash_error');
+				}
 
 			if ($this->Noticia->saveAll($this->request->data)) {
 				
 				$this->Session->setFlash(__('A Página foi editado com sucesso.'), 'flash_success');
-				$this->redirect(array('action' => 'edit', $id));
+				$this->redirect(array('action' => 'edit', $idAux));
 				//$this->redirect(array('action' => 'index'));
 				
 				

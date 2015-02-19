@@ -2627,3 +2627,7 @@ blockquote {
 	}
 }
 
+.widget-posts.menu-footer li{
+	margin-bottom: 10px;
+}
+

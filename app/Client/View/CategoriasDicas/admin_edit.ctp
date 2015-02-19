@@ -32,7 +32,12 @@
 					            ?>
 				                <div class="span12 field-box">
 			                    <?php 
-					            	echo $this->Form->input('designacao', array('label'=>'Designação do Serviço:','placeholder'=>'Preenchimento Obrigatório', 'class'=>'span9', 'error' => array('attributes' => array('wrap' => 'span', 'class' => 'alert-msg'))));
+					            	echo $this->Form->input('designacao', array('label'=>'Designação da Categoria:','placeholder'=>'Preenchimento Obrigatório', 'class'=>'span9', 'error' => array('attributes' => array('wrap' => 'span', 'class' => 'alert-msg'))));
+					            ?>
+				                </div>
+				                <div class="span12 field-box">
+			                    <?php 
+					            	echo $this->Form->input('hashtag', array('label'=>'HashTag da Categora:','placeholder'=>'Preenchimento Obrigatório', 'class'=>'span9', 'error' => array('attributes' => array('wrap' => 'span', 'class' => 'alert-msg'))));
 					            ?>
 				                </div>
 				                <div class="field-box">

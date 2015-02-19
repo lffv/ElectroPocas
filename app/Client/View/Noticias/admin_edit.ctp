@@ -69,7 +69,7 @@
 			                    </div>
 			                    <div class="span12 field-box">
 				                <?php 
-					            	echo $this->Form->input('data', array('label'=>'Data', 'class'=>'span9 datepicker', 'error' => array('attributes' => array('wrap' => 'span', 'class' => 'alert-msg'))));
+					            	echo $this->Form->input('data', array('label'=>'Data', 'class'=>'span9 datepicker','type'=>'text' , 'error' => array('attributes' => array('wrap' => 'span', 'class' => 'alert-msg'))));
 					            ?>
 				                </div>
 				                <?php foreach ($this->data['Image'] as $key => $value):?>
@@ -84,6 +84,23 @@
 							            
 					                </div>
 				                <?php endforeach;?>
+				                <div class="span12 field-box ">
+				                	
+					            <?php
+			                    	echo $this->Form->input('imagem_thumb', array('class'=>'btn-flat inverse pull-right','type' => 'file'));
+					            ?>
+									<img class="span3" src="<?php echo $this->base; ?>/uploads/<?php echo $this->data['Noticia']['imagem_thumb']; ?>">
+
+				                </div>
+				                <div class="span12 field-box ">
+				                	
+					            <?php
+			                    	echo $this->Form->input('imagem_mini', array('class'=>'btn-flat inverse pull-right','type' => 'file'));
+					            ?>
+									<img class="span3" src="<?php echo $this->base; ?>/uploads/<?php echo $this->data['Noticia']['imagem_mini']; ?>">
+
+				                </div>
+
 				            </div>
 						</div>
 					</div>

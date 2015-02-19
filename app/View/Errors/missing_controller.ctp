@@ -29,18 +29,19 @@
 if (Configure::read('debug') > 0):
 	echo $this->element('exception_stack_trace');
 endif;
-*/$this->layout = 'public';
+*/
+$this->layout = 'public';
 
 ?>
 	<div class="breadcrumbs">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-6">
-					<h4>404 Page</h4>
-					<span>We Are Sorry, Page Not Found</span>
+					<h4>404</h4>
+					<span>PÁGINA NÃO ENCONTRADA</span>
 				</div>
 				<div class="col-md-6">
-					<div class="crumbs">You are here: <a href="index.html">Home</a><span class="crumbs-span">&raquo;</span><span>404</span></div>
+					<div class="crumbs">You are here: <a href="<?php echo $this->base; ?>">Home</a><span class="crumbs-span">&raquo;</span><span>404</span></div>
 				</div>
 			</div><!-- End row -->
 		</div><!-- End container -->
@@ -54,7 +55,7 @@ endif;
 						<div class="col-md-12">
 							<div class="page-404">
 								<h2>404</h2>
-								<h3>OOPS! NOT FOUND :(</h3>
+								<h3>PÁGINA NÃO ENCONTRADA</h3>
 								<div class="search-404">
 									<a class="button-3" href="<?php echo $this->base; ?>">Homepage</a>
 								</div><!-- End search-404 -->

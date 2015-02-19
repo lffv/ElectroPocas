@@ -28,7 +28,11 @@ class ServicosController extends AppController {
 	            	),
 	        ),
     	);
-    	$this->Servico->recursive = 2;
+    	$this->Servico->recursive = -1;
+    	echo("<pre>");
+    	debug(print_r($this->paginate('Servico')));
+    	echo("</pre>");
+
 		$this->set('servicos', $this->paginate('Servico'));
 	}
 
@@ -43,10 +47,15 @@ class ServicosController extends AppController {
 		if (!$this->Servico->exists($id)) {
 			throw new NotFoundException(__('Dados Inválidos'));
 		}
-		$options = array('conditions' => array('Servico.' . $this->Servico->primaryKey => $id));
+		$options = array('conditions' => array('Servico.' . $this->Servico->primaryKey => $id), 'recursive' => 2);
 		$this->set('servico', $this->Servico->find('first', $options));
 	}
 
+
+	public function admin_addSub($id=null) {
+		//Abrir Modal
+		debug($id);
+	}
 /**
  * add method
  *

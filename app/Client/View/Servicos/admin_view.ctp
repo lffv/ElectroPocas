@@ -17,7 +17,7 @@
 					<div class="tabbable"> <!-- Only required for left/right tabs -->
 						<ul class="nav nav-tabs">
 							<li class="active"><a href="#tab1" data-toggle="tab">Detalhes do Serviço</a></li>
-							<li class=""><a href="#tab2" data-toggle="tab">Produtos Associados</a></li>
+							<li class=""><a href="#tab2" data-toggle="tab">Sub Serviços</a></li>
 						</ul>
 						<div class="tab-content">
 							<div class="tab-pane active" id="tab1">
@@ -36,6 +36,13 @@
 					                    <div class="input text">
 				                    		<label for="slug">Serviço Url:</label>
 				                    		<?php echo $servico['Servico']['slug'] ?>	
+				                    		
+			                    		</div>
+					                </div>
+					                <div class="span12 field-box">
+					                    <div class="input text">
+				                    		<label for="slug">Serviço ICON:</label>
+				                    		<?php echo $servico['Servico']['icon'] ?>	
 				                    		
 			                    		</div>
 					                </div>
@@ -72,8 +79,8 @@
 								<div class="container">
 				            		<div class="row-fluid table">
 				            		<div style="margin-bottom: 15px;" class="span10 pull-right"> 
-							            <a href="<?php echo $this->base; ?>/admin/produtos/add/<?php echo $servico['Servico']['id'] ?>" class="btn-flat success pull-right">
-						                    <span>+ </span>NOVO PRODUTO
+							            <a href="<?php echo $this->base; ?>/admin/servicos/addSub/<?php echo $servico['Servico']['id'] ?>" class="btn-flat success pull-right">
+						                    <span>+ </span>NOVO SUBSERVIÇO
 						                </a>
 						            </div>
 							            <table class="table table-products table-hover">
@@ -88,29 +95,37 @@
 							                </thead>
 							                <tbody>
 							                <!-- row -->
-							                <?php $i = 0; $class="";
-							                foreach ($servico['Produto'] as $produto): $i++;?>
 
+							                <?php $i = 0; $class="";
+							                foreach ($servico['SubServico'] as $produto): $i++;?>
+ 											
 							                <?php if($i == 1)  $class = ' class="first" '; else $class=""; ?>
 							                <tr <?php echo $class; ?>>
 							                    <td>
-
-							                        <a href="<?php echo $this->base."/admin/produtos/view/".$produto['id']."/".$servico['Servico']['id']; ?>" class="name"><?php echo h($produto['designacao']); ?></a>
-							                    </td>
-
-							                    <td>
-							                        <?php 
-							                        echo $produto['activo'] ? "<span class=\"label label-success\">Visível</span>" : "<span class=\"label\">Não Visível</span>";
-							                        ?>
+							                        <?php echo $produto['designacao']; ?>
 							                    </td>
 							                    
 							                    <td>
 							                        <ul class="actions">
-							                            <li><a href="<?php echo $this->base; ?>/admin/produtos/edit/<?php echo $produto['id']; ?>/<?php echo $servico['Servico']['id']; ?>"><i class="table-edit"></i></a></li>
+							                            <li><a href="<?php echo $this->base; ?>/admin/produtos/edit/<?php echo $produto['id']; ?>/<?php echo $servico['Servico']['id']; ?>">+</a></li>
 							                            <li class="last"><a class="treatmentDelete" href="<?php echo $this->base; ?>/admin/produtos/delete/<?php echo $produto['id']; ?>"><i class="table-delete"></i></a></li>
 							                        </ul>
 							                    </td>
 							                </tr>
+
+							                	<?php foreach ($produto['Produto'] as $prod): ?>
+							                		<tr>
+								                		<td>
+								                        	<?php echo $prod['designacao']; ?>
+								                    	</td>
+								                    	<td>
+									                        <ul class="actions">
+									                            <li><a href="<?php echo $this->base; ?>/admin/produtos/edit/<?php echo $prod['id']; ?>/<?php echo $servico['Servico']['id']; ?>"><i class="table-edit"></i></a></li>
+									                            <li class="last"><a class="treatmentDelete" href="<?php echo $this->base; ?>/admin/produtos/delete/<?php echo $prod['id']; ?>"><i class="table-delete"></i></a></li>
+									                        </ul>
+									                    </td>
+								                    </tr>
+							                	<?php endforeach;?>
 							                <?php 
 							                endforeach; ?>
 							                <!-- row -->

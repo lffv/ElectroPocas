@@ -20,8 +20,8 @@ class Servico extends AppModel {
 	);
 
 	public $hasMany = array(
-        'Produto' => array(
-            'className' => 'Produto',
+        'SubServico' => array(
+            'className' => 'SubServico',
             'conditions' => '',
             'order' => ''
         ),

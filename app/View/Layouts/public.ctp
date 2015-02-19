@@ -13,7 +13,7 @@
 	<meta name="author" content="ElectroPoças, lda.">
 	
 	<meta name="fragment" content="!">
-	<meta name="robots" content="index, follow">
+	<meta name="robots" content="noindex, nofollow">
 	<?php 
 		
     	echo $this->Html->css('style.css');
@@ -33,25 +33,42 @@
 
 <div id="wrap" class="fixed-enabled grid_1200">
 	
+<style>
+ .reparacoes-text:hover,
+ .reparacoes:hover{
+ 	color:#000;
+ }
+
+ .reparacoes-text{
+ 	color:#acacac;
+ }
+</style>
+
 	<header id="header-top">
 		<div class="container clearfix">
 			<div class="row">
 				<div class="col-md-6">
-					<div class="phone-email"><i class="fa fa-phone"></i>+ 2 0106 5370701</div>
-					<div class="phone-email phone-email-2"><i class="fa fa-envelope"></i>7oroof@7oroof.com</div>
+					<div class="phone-email" style="color:#acacac;"><i class="fa fa-phone" style="color:#0a9fd8;"></i>962 877 701</div>
+					<div class="phone-email phone-email-2" style="color:#acacac;"><i style="color:#0a9fd8;" class="fa fa-envelope"></i>info@electropocas.pt</div>
+					<div class="phone-email phone-email-2 reparacoes">
+					<i class="fa fa-envelope"></i><a href="http://reparacoes.electropocas.pt" target="_blank" class="reparacoes-text" style="">Centro de Reparações</a></div>
 				</div>
 				<div class="col-md-6">
 					<div class="social-ul">
 						<ul>
-							<li class="social-facebook"><a href="#"><i class="fa fa-facebook"></i></a></li>
-							<li class="social-twitter"><a href="#"><i class="fa fa-twitter"></i></a></li>
-							<li class="social-google"><a href="#"><i class="fa fa-google-plus"></i></a></li>
-							<li class="social-pinterest"><a href="#"><i class="fa fa-pinterest"></i></a></li>
-							<li class="social-vimeo"><a href="#"><i class="fa fa-vimeo-square"></i></a></li>
-							<li class="social-linkedin"><a href="#"><i class="fa fa-linkedin"></i></a></li>
-							<li class="social-dribbble"><a href="#"><i class="fa fa-dribbble"></i></a></li>
-							<li class="social-youtube"><a href="#"><i class="fa fa-youtube-play"></i></a></li>
-							<li class="social-rss"><a href="#"><i class="fa fa-rss"></i></a></li>
+							<li class="social-facebook"><a target="_blank" href="http://www.facebook.com/electropocas"><i class="fa fa-facebook"></i></a></li>
+
+							<li class="social-twitter"><a target="_blank" href="http://twitter.com/electropocas"><i class="fa fa-twitter"></i></a></li>
+
+							<li class="social-google"><a target="_blank" href="http://plus.google.com/+ElectroPoçasCeloricodeBasto"><i class="fa fa-google-plus"></i></a></li>
+
+							<li class="social-pinterest"><a target="_blank" href="http://www.pinterest.com/ElectroPocas"><i class="fa fa-pinterest"></i></a></li>
+
+							<li class="social-vimeo"><a  target="_blank" href="http://vimeo.com/electropocas"><i class="fa fa-vimeo-square"></i></a></li>
+
+							<li class="social-linkedin"><a target="_blank" href="http://www.linkedin.com/company/electro-po-as"><i class="fa fa-linkedin"></i></a></li>
+							
+							<li class="social-youtube"><a target="_blank" href="https://www.youtube.com/channel/UCH922ssBWhqhXzZhkBSipnQ"><i class="fa fa-youtube-play"></i></a></li>
 						</ul>
 					</div>
 				</div>
@@ -61,17 +78,17 @@
 	
 	<header id="header">
 		<div class="container clearfix">
-			<div class="logo"><a href="<?php echo $this->base ?>"><img alt="<?php echo __('Electro Poças'); ?>" src="<?php echo $this->base ?>/images/logo.png"></a><span><?php echo __('Electro Poças'); ?></span></div>
-			<!--
+			<div class="logo"><a href="<?php echo $this->base ?>"><img alt="<?php echo __('Electro Poças'); ?>" src="<?php echo $this->base ?>/images/logo.png"></a></div>
+			
 			<div class="header-search">
 				<div class="header-search-a"><i class="fa fa-search"></i></div>
 				<div class="header-search-form">
-					<form method="post">
-						<input type="text" placeholder="Search Words Here">
+					<form method="post" action="<?php echo $this->base;?>/Search">
+						<input name="stringSearch" type="text" placeholder="Pesquisa">
 					</form>
 				</div>
 			</div>
-			-->
+			
 			
 			<?php 
 				echo $this->element('navigation'); 
@@ -98,6 +115,7 @@
 <script type="text/javascript"
       src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDBFAvQ8vqdQX212fXbQHq9ECknlx2EPds&sensor=true">
     </script>
+    	<script src="https://apis.google.com/js/client.js"> </script>
 <?php 
 
         echo $this->Html->script('jquery.min');
@@ -113,7 +131,10 @@
         echo $this->Html->script('jquery.bxslider.min');
         echo $this->Html->script('jquery.themepunch.plugins.min');
         echo $this->Html->script('jquery.themepunch.revolution.min');
+        echo $this->Html->script('jquery.sharrre.min');
         echo $this->Html->script('custom');
+
+	
 
         echo $this->fetch('script');
 

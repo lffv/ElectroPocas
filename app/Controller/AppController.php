@@ -32,7 +32,7 @@ App::uses('Controller', 'Controller');
  * @link		http://book.cakephp.org/2.0/en/controllers.html#the-app-controller
  */
 class AppController extends Controller {
-	public $uses = array('Noticia');
+	public $uses = array('Noticia', 'Servico');
 	public $components = array(
 //			'DebugKit.Toolbar',
 			'Acl',
@@ -77,11 +77,15 @@ class AppController extends Controller {
 		}
 		
 		$mSel = $this->Session->read('Menu.Select');
-		$this->Auth->allow(array('findNoticia','home', 'servicos', 'dicas', 'noticias', 'sobrenos', 'contactos', 'servico'));
+		$this->Auth->allow(array('search','findNoticia','sendMail','home', 'servicos', 'dicas', 'noticias', 'sobrenos', 'contactos', 'servico', 'share'));
 		$this->set('mSel', $mSel);
 
 		$options = array('conditions' => array('Noticia.activo' => 1), 'order'=> array('Noticia.data DESC'), 'limit' => 3);
 		$this->set('noticiasFooter', $this->Noticia->find('all', $options));
+		
+		$options = array('conditions' => array('Servico.activo' => 1), 'recursive' => -1);
+		$this->set('servicosMenu', $this->Servico->find('all', $options));
+
 		
   }
 }

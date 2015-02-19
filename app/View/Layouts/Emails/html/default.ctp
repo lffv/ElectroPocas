@@ -153,7 +153,7 @@ h3{
 				<table>
 					<tr>
 						<td align="center">
-							<p>&copy; 2014 Flumenfest</p>
+							<p>&copy; 2015 ElectroPoças,lda</p>
 						</td>
 					</tr>
 				</table>

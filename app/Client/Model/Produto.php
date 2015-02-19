@@ -21,7 +21,17 @@ class Produto extends AppModel {
 
 	);
 	*/
+
 	public $belongsTo = array(
+        'SubServico' => array(
+            'className' => 'SubServico',
+            'conditions' => '',
+            'dependent' => true,
+            'foreignKey' => 'sub_servico_id',
+        ),
+    );
+	/*public $belongsTo = array(
+
 		'Servico' => array(
 			'className' => 'Servico',
 			'foreignKey' => 'servico_id',
@@ -29,7 +39,7 @@ class Produto extends AppModel {
 			'fields' => '',
 			'order' => ''
 		)
-	);
+	);*/
 
 	public $hasOne = array(
         'Metatag' => array(

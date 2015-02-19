@@ -3,11 +3,11 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-6">
-				<h4><?php echo __('Serviços'); ?></h4>
-				<span>Latest Awesome &amp; Creative Works</span>
+				<h4 style="margin-top:17px;"><?php echo __('Serviços'); ?></h4>
+				
 			</div>
 			<div class="col-md-6">
-				<div class="crumbs"><?php echo __('Voçê esta aqui: '); ?><a href="<?php echo $this->base ?>/"><?php echo __('Home'); ?></a><span class="crumbs-span">»</span><span><?php echo __('Serviços'); ?></span></div>
+				<div class="crumbs"><?php echo __('Você esta aqui: '); ?><a href="<?php echo $this->base ?>/"><?php echo __('Home'); ?></a><span class="crumbs-span">»</span><span><?php echo __('Serviços'); ?></span></div>
 			</div>
 		</div><!-- End row -->
 	</div><!-- End container -->
@@ -35,14 +35,17 @@
 										<div class="portfolio-head">
 											<div class="portfolio-img"><img alt="<?php echo $serv['Servico']['designacao']?>" src="<?php echo $this->base."/uploads/".$serv['Servico']['imagem']; ?>"></div>
 											<div class="portfolio-hover">
-												<a class="portfolio-link" href="<?php echo $this->base."/Servico/".$serv['Servico']['slug']; ?>"><i class="fa fa-link"></i></a>
+												<!--<a class="portfolio-link" href="<?php echo $this->base."/Servico/".$serv['Servico']['slug']; ?>"><i class="fa fa-link"></i></a>-->
+												<a class="portfolio-link" href="#"><i class="fa fa-link"></i></a>
+												
 												<a class="portfolio-zoom prettyPhoto" href="<?php echo $this->base."/uploads/".$serv['Servico']['imagem']; ?>"><i class="fa fa-search"></i></a>
 											</div>
 										</div><!-- End portfolio-head -->
 										<div class="portfolio-content">
-											<i class="fa fa-leaf"></i>
+											<i class="fa <?php echo $serv['Servico']['icon'] ?>"></i>
 											<div class="portfolio-meta">
-												<div class="portfolio-name"><h6><a href="<?php echo $this->base."/Servico/".$serv['Servico']['slug']; ?>"><?php echo $serv['Servico']['designacao']?> </a></h6></div>
+												<div class="portfolio-name"><h6><a href="#"><?php echo $serv['Servico']['designacao']?> </a></h6></div>
+												<!--<div class="portfolio-name"><h6><a href="<?php echo $this->base."/Servico/".$serv['Servico']['slug']; ?>"><?php echo $serv['Servico']['designacao']?> </a></h6></div>-->
 											</div><!-- End portfolio-meta -->
 										</div><!-- End portfolio-content -->
 									</div><!-- End portfolio-item -->

@@ -33,6 +33,12 @@
 					                        ?>
 			                    		</div>					                
 			                    	</div>
+			                    	<div class="span12 field-box">
+				                    	<div class="input text">
+				                    		<label for="HashTag">HashTag:</label>
+				                    		<?php echo $categoria['CategoriasDica']['hashtag'] ?>	
+			                    		</div>					                
+			                    	</div>
 					            </div>
 							</div>
 							<div class="tab-pane" id="tab2">
